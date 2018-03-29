@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.BlogCommentChargeDao">
+	<select id="get" resultType="net.answeris.web.model.BlogCommentCharge">
+		select * from CommentCharge where Code=#{code}		 		
+	</select>
+	
+	<insert id='add' parameterType="net.answeris.web.model.BlogCommentCharge">
+		<selectKey order="BEFORE" resultType="String" keyProperty="code">
+			SELECT ISNULL(MAX(CONVERT(INT, Code)), 0)+1 Code FROM CommentCharge;
+		</selectKey>
+		insert into CommentCharge (Code, MemberId, CommentCode, DetailReason, ChargeOption) VALUES(#{code}, #{memberId}, #{commentCode}, #{detailReason}, #{chargeOption})
+	</insert>
+</mapper>

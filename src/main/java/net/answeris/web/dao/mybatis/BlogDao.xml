@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.BlogDao">
+	<select id="getList" resultType="net.answeris.web.model.Blog">
+		<!-- SELECT * FROM
+		(SELECT ROWNUM NUM, NOTICE_VIEW.* FROM NOTICE_VIEW WHERE ${param1} LIKE '%${param2}%')
+		WHERE NUM BETWEEN 1+(#{param3} - 1)*10 AND #{param3}*10 -->
+		
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY Code DESC) Num, Blog.*  
+			FROM Blog WHERE MemberId=#{memberId} and Title like '%%'
+		) C
+		WHERE Num BETWEEN 1 AND 9;		
+				 		
+	</select>
+	<select id="getLists" resultType="net.answeris.web.model.Blog">
+		select * from
+		(
+			select B.* from PublicBlog AS PB inner join Blog AS B
+			ON B.Code = PB.BlogCode 
+		) as dd
+		where MemberId = #{param1}
+		order by RegDate DESC;
+	</select>
+	<select id="getNextList" resultType="net.answeris.web.model.Blog">
+		
+      SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Blog.*  
+         FROM Blog where MemberId=#{param2} and Title like '%%'
+		) C
+		WHERE Num BETWEEN 1 AND 9+5*#{param1};		
+	</select>
+
+	<select id="getNextLists" resultType="net.answeris.web.model.Blog">
+		
+select * from 
+(
+	select ROW_NUMBER() OVER (order by B.RegDate DESC) num, B.* from PublicBlog AS PB inner join Blog AS B
+	on B.Code = PB.BlogCode where MemberId = #{param2}
+) c
+Where num between 1 and 9+5*#{param1};
+	</select>
+	
+	
+	<select id="get" resultType="net.answeris.web.model.Blog">
+		
+		SELECT B.*, C.Name, M.Nickname FROM (Blog B inner join Category C on B.CategoryCode=C.Code inner join Member M on B.MemberId=M.Id) where B.CODE = #{param1};
+	</select>
+	
+	<select id="getNext" resultType="net.answeris.web.model.Blog">
+		SELECT * FROM NOTICE_VIEW WHERE CODE=(SELECT MIN(TO_NUMBER(CODE)) FROM NOTICE_VIEW WHERE CODE &gt; #{param1})
+	</select>
+	
+	<!-- <select id="getPrev" resultType="net.answeris.web.model.Blog">
+		SELECT * FROM NOTICE_VIEW WHERE CODE=(SELECT MAX(TO_NUMBER(CODE)) FROM NOTICE_VIEW WHERE CODE &lt; #{param1})
+	</select>
+ -->	
+			
+	<insert id="add" parameterType="net.answeris.web.model.Blog">	
+		<selectKey order="BEFORE" resultType="String" keyProperty="code">
+			SELECT ISNULL(MAX(CONVERT(INT, Code)), 0)+1 Code FROM Blog
+		</selectKey>
+		
+		INSERT INTO Blog(Code, Title, MemberId, Content, RegDate, CategoryCode, HashTag, Hit) VALUES(#{code}, #{title}, #{memberId}, #{content}, getdate(), #{categoryCode}, #{hashtag}, 0)
+	</insert>
+	
+	<update id="update" parameterType="net.answeris.web.model.Blog">
+		UPDATE BLOG SET TITLE=#{title}, CONTENT=#{content} WHERE CODE=#{code}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM BLOG WHERE CODE = #{code}
+	</delete>
+	
+	<insert id="publicSet" parameterType="net.answeris.web.model.Blog">
+		IF NOT EXISTS (select Code from PublicBlog where BlogCode=#{param1})
+		BEGIN
+			insert into PublicBlog(Code,BlogCode) values((select MAX(cast(Code AS int))+1 from PublicBlog),#{param1})
+		END
+   </insert>
+   	<insert id="setLike" parameterType="net.answeris.web.model.Blog">
+		INSERT INTO BlogGood(memberId,blogCode) VALUES(#{param1}, #{param2})
+   </insert>
+	<select id="getLikeNum" parameterType="String" >
+		SELECT LIKENUM FROM BLOG WHERE CODE = #{param1}
+	</select>
+	
+</mapper>

@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+
+/*-------------- class style ---------------- */
+.hidden {
+	display: none;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+	margin-top: 40px;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+
+/*-------------- find-id style---------------- */
+#find-id {
+	margin-top: 20px;
+}
+#find-id-main p {
+	line-height: 23px;
+	text-align: center;
+	font-size: 14px;
+ 	color: #aaa;
+	
+}
+#find-id label {
+	margin-left: 22%;
+	margin-top: 20px;
+	display: block;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+}
+
+#find-id div input[type='text'] {
+	margin-left: 22%;
+	width: 60%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+
+}
+
+
+#find-id div select {
+	width: 15%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#find-id div select[name='user_birth_year'] {
+	margin-left: 23%;
+	width: 18%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+#find-id div select[name='user_birth_month'] {
+	margin-left: 2%;
+	width: 13%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+#find-id div select[name='user_birth_day'] {
+	margin-left: 2%;
+	width: 13%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+
+#find-id div input[type='button'] {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	color: white;
+	width: 60px;
+	height: 25px;
+	background-color: #B5D234;
+	border: 1px solid #fff;
+	border-radius: 3px;
+}
+
+
+#find-id div input[type='button']:hover{
+
+	color: lightgray;
+}
+
+#check{
+	display: inline-block;
+	margin-top: 7%;
+	margin-left: 40%;
+}
+
+
+#find-id div:first-child {
+	margin-top: 0px;
+}
+

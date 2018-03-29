@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.CommentDao">
+
+	<select id="getList" resultType="net.answeris.web.model.BlogComment">
+		SELECT ROW_NUMBER() OVER (ORDER BY RegDate ASC) Num, CommentView.*  FROM CommentView WHERE BlogCode=#{code}	
+	</select>
+	
+	<select id="initGetList" resultType="net.answeris.web.model.BlogComment">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY Code DESC) Num, commentView.*  
+			FROM commentView WHERE BlogCode=#{param1} 
+		) C
+		WHERE Num BETWEEN 1 AND 5;	
+	</select>
+	
+	<select id="get" resultType="net.answeris.web.model.BlogComment">
+		SELECT * FROM CommentView WHERE Code=#{code}	
+	</select>
+	
+	
+	<update id="update" parameterType="net.answeris.web.model.BlogComment">
+		UPDATE Comment SET CONTENT=#{content} WHERE Code=#{code}
+	</update>
+	
+	<update id="delete">
+		UPDATE Comment SET CONTENT='삭제된 댓글입니다.' WHERE Code=#{code}
+	</update>
+	<update id="deleteAdmin">
+		UPDATE Comment SET CONTENT='관리자에 의해 삭제되었습니다.' WHERE Code=#{code}
+	</update>
+	
+	<insert id="add" parameterType="net.answeris.web.model.BlogComment">
+	   <selectKey order="BEFORE" resultType="String" keyProperty="code">
+	  	 select MAX(cast(Code AS int))+1 CODE from comment;
+	   </selectKey>   
+  	 	insert into Comment(Code,Content,BlogCode,MemberId) values(#{code},#{param1},#{param2},#{param3}) 
+   </insert>
+	
+</mapper>

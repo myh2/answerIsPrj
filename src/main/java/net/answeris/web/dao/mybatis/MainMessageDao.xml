@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.MessageDao">
+	<select id="getRecvMsgLst" resultType="net.answeris.web.model.Msg">
+		DECLARE @RecordsPerPage INT = ${RecordsPerPage}, @PageNumber INT =
+		${PageNumber}
+		SELECT Code, recvMemberID, sentMemberID,
+		content,
+		sentDate, readDate, recvDeletePoint,
+		boolRecvRead
+		FROM MsgBox
+		WHERE recvMemberID = #{recvMemberID} and recvDeletePoint ='N'
+		<!-- AND boolRecvRead in <foreach item="item" index="index" collection="boolRecvRead" 
+			open="(" separator="," close=")"> #{item} </foreach> -->
+
+		ORDER BY Code DESC
+		OFFSET (@PageNumber-1)*@RecordsPerPage ROWS
+		FETCH
+		NEXT @RecordsPerPage ROWS ONLY
+	</select>
+	<select id="getRecvMsgLstCnt">
+		SELECT COUNT(*) AS totalNumber
+		FROM MsgBox
+		WHERE recvMemberID =
+		#{recvMemberID}
+		AND boolRecvRead in
+		<foreach item="item" index="index" collection="boolRecvRead"
+			open="(" separator="," close=")">
+			#{item}
+		</foreach>
+
+	</select>
+	<select id="getSentMsgLst" resultType="net.answeris.web.model.Msg">
+		DECLARE @RecordsPerPage
+		INT = ${RecordsPerPage}, @PageNumber INT = ${PageNumber}
+		SELECT Code,
+		recvMemberID, sentMemberID,
+		content,
+		sentDate, readDate,
+		boolRecvRead
+		FROM MsgBox
+		WHERE sentMemberID = #{sentMemberID} and sentDeletePoint ='N'
+
+		ORDER BY Code DESC
+		OFFSET (@PageNumber-1)*@RecordsPerPage ROWS
+		FETCH NEXT @RecordsPerPage
+		ROWS ONLY
+	</select>
+	<select id="getSentMsgLstCnt">
+		SELECT COUNT(*) AS totalNumber
+		FROM MsgBox
+		WHERE
+		sentMemberID = #{sentMemberID}
+
+	</select>
+	<select id="getMsg" resultType="net.answeris.web.model.Msg">
+		SELECT Code, recvMemberID,
+		sentMemberID,
+		content,
+		sentDate, readDate,
+		boolRecvRead
+		FROM MsgBox
+		WHERE Code = ${code}
+	</select>
+
+	<update id="updateReadState">
+		UPDATE MsgBox
+		Set boolRecvRead = '${param2}' WHERE Code = ${param1}
+	</update>
+	
+	<update id="updateRecvDeletePoint">
+		UPDATE MsgBox
+		Set recvDeletePoint = 'Y' WHERE Code = ${param1}
+	</update>
+	
+	<update id="updateSentDeletePoint">
+		UPDATE MsgBox
+		Set sentDeletePoint = 'Y' WHERE Code = ${param1}
+	</update>
+	
+
+	<insert id="writeMsg" parameterType="net.answeris.web.model.Msg">
+
+		INSERT INTO MsgBox
+		(recvMemberID, sentMemberID,
+		content,
+		sentDate,
+		recvDeletePoint,
+		sentDeletePoint,
+		boolRecvRead)
+		VALUES
+		(#{recvMemberID}, #{sentMemberID},
+		#{content},
+		#{sentDate},
+		#{recvDeletePoint},
+		#{sentDeletePoint},
+		#{boolRecvRead})
+	</insert>
+	<select id="getNewMessage" resultType="net.answeris.web.model.Msg">
+		SELECT COUNT(BOOLRECVREAD) AS newCount FROM MSGBOX WHERE recvMemberID=#{PARAM1} and  BOOLRECVREAD='N'
+	</select>
+</mapper>

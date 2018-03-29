@@ -1,0 +1,150 @@
+@CHARSET "UTF-8";
+/*-------------- class style ---------------- */
+.hidden {
+	display: none;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+/*--------------main-menu--------------- */
+#main-menu {
+	border-bottom: lightgray 1px solid;
+	padding-bottom: 8px;
+}
+
+#main-menu ul {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	text-align: center;
+}
+
+#main-menu>ul>li {
+	white-space: nowrap;
+	display: flex;
+	justify-content: space-around;
+	border-left: 1px solid lightgray;
+	display: inline-block;
+	font-weight: bold;
+	padding-left: 7%;
+	padding-right: 7%;
+}
+
+#main-menu>ul>li a {
+	color: #444;
+}
+
+#main-menu>ul>li:first-child {
+	border: none;
+}
+
+.rcvMessage span:last-child {
+	margin-bottom: 10px;
+}
+
+#buttons {
+	display: block;
+	margin-top: 15px;
+	float: left;
+	margin-bottom: 5px;
+}
+/*-------------컨텐츠--------------- */
+#container {
+	display: inline-block;
+	width: 100%;
+}
+
+#sender {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	color: white;
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid lightgray;
+	border-bottom: 1px solid white;
+}
+
+#sender>* {
+	display: inline-block;
+	float: left;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#sender label {
+	background: lightgray;
+	min-width: 20%;
+	text-align: center;
+}
+
+#sender p {
+	margin-left: 7%;
+	
+}
+
+#sender a {
+	font-size: 14px;
+	vertical-align: middle;
+	color: gray;
+}
+
+#sendTime {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	color: white;
+	font-size: 14px;
+	display: inline-block;
+	width: 100%;
+	border: 1px solid lightgray;
+}
+
+#sendTime>* {
+	display: inline-block;
+	float: left;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#sendTime label {
+	background: lightgray;
+	min-width: 20%;
+	text-align: center;
+}
+
+#sendTime p {
+	margin-left: 7%;
+}
+
+#sendTime a {
+	font-size: 14px;
+	vertical-align: middle;
+	color: gray;
+}
+
+#content {
+	word-break: break-all;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+	min-height: 380px;
+	width: 100%;
+	border-bottom: 2px lightgray solid;
+	display: inline-block;
+}
+
+#content a {
+	color: #444;
+	
+}

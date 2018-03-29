@@ -1,0 +1,16 @@
+@import url(../reset.css);
+@import url(../base.css);
+@import url(../layout.css);
+@import url(../style.css);
+@import url(style.css);
+
+/* 나(notice)의 스타일 */
+.article-comment
+{
+	text-align: right;
+}
+
+.btn-write
+{
+	text-align: left;
+}

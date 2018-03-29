@@ -1,0 +1,601 @@
+@CHARSET "UTF-8";
+
+.hidden {
+	display: none;
+}
+
+#content {
+	/* border: 1px  solid red; */
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background: rgb(242, 242, 242);
+	width: 100%;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 50px;
+	padding-bottom: 10px;
+	border-radius: 10px;
+}
+
+#content>h2 {
+	margin-bottom: 15px;
+	font-family: "고딕", "맑은고딕", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+/* ---------------------------question-board-header style------------------------- */
+#question-board-header {
+	display: flex;
+	justify-content: center;
+}
+
+#question-board-header ul {
+	margin-top: 10px;
+	overflow: hidden;
+}
+
+#question-board-header li {
+	float: left;
+	width: 112px;
+	text-align: center;
+	background: gray;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#question-board-header li:hover {
+	background: #979797;
+}
+
+#question-board-header li:first-child+li+li {
+	background: rgb(242, 242, 242);
+}
+
+#question-board-header li:first-child {
+	border-radius: 10px 0px 0px 10px;
+}
+
+#question-board-header li:last-child {
+	border-radius: 0px 10px 10px 0px;
+}
+
+#question-board-header li a {
+	text-decoration: none;
+	color: black;
+}
+
+/* --------------list-form style---------------------------------- */
+#list-form {
+	/* display:flex;
+		justify-content:center; */
+	width: 100%;
+	height: 25px;
+	/* 	border:1px solid red; */
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+
+#list-form ul {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#list-form li {
+	/* 	border:1px solid blue; */
+	float: right;
+}
+
+#list-form li:last-child {
+	line-height: 18px;
+}
+
+#list-form li:last-child select {
+	height: 22px;
+}
+/* ---------------table style------------------------------------ */
+#question-list-div {
+	display: flex;
+	justify-content: center;
+}
+
+#question-list {
+	width: 100%;
+	table-layout: fixed;
+	border: 1px solid black;
+	border-radius: 10px 10px 10px 10px;
+}
+
+#question-list td {
+	height: 40px;
+}
+
+#question-list thead td {
+	background: none;
+	border-bottom: 1px solid black;
+	font-family: "고딕", "맑은고딕", "sans-serif";
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.title a {
+	text-decoration: none;
+}
+
+#question-list thead td:first-child {
+	border-radius: 10px 0px 0px 0px;
+}
+
+#question-list thead td:last-child {
+	border-radius: 0px 10px 0px 0px;
+}
+
+#question-list td:first-child {
+	width: 5%;
+}
+
+#question-list td:first-child+td {
+	width: 55%;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+#question-list td:first-child+td a {
+	color: black;
+}
+
+#question-list td:first-child+td+td {
+	width: 10%;
+}
+
+#question-list td:first-child+td+td+td {
+	width: 20%;
+}
+
+#question-list tbody td {
+	border-bottom: 1px solid black;
+	font-family: "고딕", "맑은고딕", "sans-serif";
+	font-size: 13px;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#question-list tbody tr:last-child td {
+	border-bottom: none;
+}
+
+#moreList input {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#moveTop input {
+	float: right;
+	position: fixed;
+	left: 85%;
+	bottom: 20px;
+}
+
+/* -------------------------------pager style--------------------------------- */
+#pager {
+	text-align: center;
+}
+
+#pager p {
+	display: inline-block;
+}
+
+/* --------------------------------------search-form style------------------------------- */
+#search-form fieldset {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: none;
+}
+/* -------------------member-menu------------------------ */
+#member-menu {
+	display: none;
+	background: white;
+	border: 1px solid #808080;
+	border-radius: 10px 10px 10px 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+#writer-inf:hover {
+	background: #EAEAEA;
+}
+
+#writer-inf>a {
+	text-decoration: none;
+	color: black;
+}
+
+/* -----------------------------------------------PC용 style-------------------------------------------------------------------------- */
+@media all and (min-width:361px){
+	.hidden {
+		display: none;
+	}
+	#content {
+		/* border: 1px  solid red; */
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		background: none;
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 50px;
+		padding-bottom: 10px;
+		border-radius: 10px;
+	}
+	#content>h2 {
+		margin-bottom: 15px;
+		font-family: "고딕", "맑은고딕", sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		color: black;
+		padding-left: 10px;
+		margin-top: 10px;
+	}
+
+	/* ---------------------------question-board-header style------------------------- */
+	#question-board-header {
+		display: flex;
+		justify-content: center;
+	}
+	#question-board-header ul {
+		margin-top: 10px;
+		overflow: hidden;
+	}
+	#question-board-header li {
+		float: left;
+		width: 112px;
+		text-align: center;
+		background: gray;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	#question-board-header li:hover {
+		background: #979797;
+	}
+	#question-board-header li:first-child+li+li {
+		background: rgb(242, 242, 242);
+	}
+	#question-board-header li:first-child {
+		border-radius: 10px 0px 0px 10px;
+	}
+	#question-board-header li:last-child {
+		border-radius: 0px 10px 10px 0px;
+	}
+	#question-board-header li a {
+		text-decoration: none;
+		color: black;
+	}
+
+	/* --------------list-form style---------------------------------- */
+	#list-form {
+		/* display:flex;
+		justify-content:center; */
+		width: 100%;
+		height: 25px;
+		/* 	border:1px solid red; */
+		margin-bottom: 10px;
+		padding-top: 10px;
+	}
+	#list-form ul {
+		display: flex;
+		justify-content: flex-end;
+	}
+	#list-form li {
+		/* 	border:1px solid blue; */
+		float: right;
+	}
+	#list-form li:last-child {
+		line-height: 18px;
+	}
+	#list-form li:last-child select {
+		height: 22px;
+	}
+	/* ---------------table style------------------------------------ */
+	#question-list-div {
+		display: flex;
+		justify-content: center;
+	}
+	#question-list {
+		width: 100%;
+		table-layout: fixed;
+		border: 1px solid black;
+		border-radius: 10px 10px 10px 10px;
+	}
+	#question-list td {
+		height: 40px;
+	}
+	#question-list thead td {
+		background: none;
+		border-bottom: 1px solid black;
+		font-family: "고딕", "맑은고딕", "sans-serif";
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.title a {
+		text-decoration: none;
+	}
+	#question-list thead td:first-child {
+		border-radius: 10px 0px 0px 0px;
+	}
+	#question-list thead td:last-child {
+		border-radius: 0px 10px 0px 0px;
+	}
+	#question-list td:first-child {
+		width: 5%;
+	}
+	#question-list td:first-child+td {
+		width: 55%;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	#question-list td:first-child+td a {
+		color: black;
+	}
+	#question-list td:first-child+td+td {
+		width: 10%;
+	}
+	#question-list td:first-child+td+td+td {
+		width: 20%;
+	}
+	#question-list tbody td {
+		border-bottom: 1px solid black;
+		font-family: "고딕", "맑은고딕", "sans-serif";
+		font-size: 13px;
+		text-align: center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	#question-list tbody tr:last-child td {
+		border-bottom: none;
+	}
+	#moreList input {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#moveTop input {
+		float: right;
+		position: fixed;
+		left: 85%;
+		bottom: 20px;
+	}
+
+	/* -------------------------------pager style--------------------------------- */
+	#pager {
+		text-align: center;
+	}
+	#pager p {
+		display: inline-block;
+	}
+
+	/* --------------------------------------search-form style------------------------------- */
+	#search-form fieldset {
+		text-align: center;
+		margin-bottom: 20px;
+		margin-top: none;
+	}
+	/* -------------------member-menu------------------------ */
+	#member-menu {
+		display: none;
+		background: white;
+		border: 1px solid #808080;
+		border-radius: 10px 10px 10px 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	#writer-inf:hover {
+		background: #EAEAEA;
+	}
+	#writer-inf>a {
+		text-decoration: none;
+		color: black;
+	}
+}
+/* -----------------------------------------------PC용 style-------------------------------------------------------------------------- */
+@media all and (min-width:1024px){
+	.hidden {
+		display: none;
+	}
+	#content {
+		/* border: 1px  solid red; */
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		background: none;
+		width: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-top: 50px;
+		padding-bottom: 10px;
+		border-radius: 10px;
+	}
+	#content>h2 {
+		margin-bottom: 15px;
+		font-family: "고딕", "맑은고딕", sans-serif;
+		font-size: 18px;
+		font-weight: bold;
+		color: black;
+		padding-left: 10px;
+		margin-top: 10px;
+	}
+
+	/* ---------------------------question-board-header style------------------------- */
+	#question-board-header {
+		display: flex;
+		justify-content: center;
+	}
+	#question-board-header ul {
+		margin-top: 10px;
+		overflow: hidden;
+	}
+	#question-board-header li {
+		float: left;
+		width: 112px;
+		text-align: center;
+		background: gray;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	#question-board-header li:hover {
+		background: #979797;
+	}
+	#question-board-header li:first-child+li+li {
+		background: rgb(242, 242, 242);
+	}
+	#question-board-header li:first-child {
+		border-radius: 10px 0px 0px 10px;
+	}
+	#question-board-header li:last-child {
+		border-radius: 0px 10px 10px 0px;
+	}
+	#question-board-header li a {
+		text-decoration: none;
+		color: black;
+	}
+
+	/* --------------list-form style---------------------------------- */
+	#list-form {
+		/* display:flex;
+		justify-content:center; */
+		width: 100%;
+		height: 25px;
+		/* 	border:1px solid red; */
+		margin-bottom: 10px;
+		padding-top: 10px;
+	}
+	#list-form ul {
+		display: flex;
+		justify-content: flex-end;
+	}
+	#list-form li {
+		/* 	border:1px solid blue; */
+		float: right;
+	}
+	#list-form li:last-child {
+		line-height: 18px;
+	}
+	#list-form li:last-child select {
+		height: 22px;
+	}
+	/* ---------------table style------------------------------------ */
+	#question-list-div {
+		display: flex;
+		justify-content: center;
+	}
+	#question-list {
+		width: 100%;
+		table-layout: fixed;
+		border: 1px solid black;
+		border-radius: 10px 10px 10px 10px;
+	}
+	#question-list td {
+		height: 40px;
+	}
+	#question-list thead td {
+		background: none;
+		border-bottom: 1px solid black;
+		font-family: "고딕", "맑은고딕", "sans-serif";
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+	}
+	.title a {
+		text-decoration: none;
+	}
+	#question-list thead td:first-child {
+		border-radius: 10px 0px 0px 0px;
+	}
+	#question-list thead td:last-child {
+		border-radius: 0px 10px 0px 0px;
+	}
+	#question-list td:first-child {
+		width: 5%;
+	}
+	#question-list td:first-child+td {
+		width: 55%;
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	#question-list td:first-child+td a {
+		color: black;
+	}
+	#question-list td:first-child+td+td {
+		width: 10%;
+	}
+	#question-list td:first-child+td+td+td {
+		width: 20%;
+	}
+	#question-list tbody td {
+		border-bottom: 1px solid black;
+		font-family: "고딕", "맑은고딕", "sans-serif";
+		font-size: 13px;
+		text-align: center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	#question-list tbody tr:last-child td {
+		border-bottom: none;
+	}
+	#moreList input {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	#moveTop input {
+		float: right;
+		position: fixed;
+		left: 85%;
+		bottom: 20px;
+	}
+
+	/* -------------------------------pager style--------------------------------- */
+	#pager {
+		text-align: center;
+	}
+	#pager p {
+		display: inline-block;
+	}
+
+	/* --------------------------------------search-form style------------------------------- */
+	#search-form fieldset {
+		text-align: center;
+		margin-bottom: 20px;
+		margin-top: none;
+	}
+	/* -------------------member-menu------------------------ */
+	#member-menu {
+		display: none;
+		background: white;
+		border: 1px solid #808080;
+		border-radius: 10px 10px 10px 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	#writer-inf:hover {
+		background: #EAEAEA;
+	}
+	#writer-inf>a {
+		text-decoration: none;
+		color: black;
+	}
+}

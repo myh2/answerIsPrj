@@ -1,0 +1,304 @@
+@CHARSET "UTF-8";
+@import url(../reset.css);
+@import url(../inc/header.css);
+@import url(../inc/layout.css);
+@import url(../codelet-layout.css);
+@import url(ace.css);
+
+
+.hidden{
+	display: none;
+}
+
+/* #codelet-title{
+	overflow:hidden;
+	text-overflow:ellipsis;
+} */
+
+
+/* 
+/* -------利먭꺼李얘린 踰꾨뒰------ */
+/* .fav{
+	background: redurl("../../images/delFavorite.png");
+    display: block;
+	width:48px;
+	height: 48px;
+	transition-property:
+	transition-duration:
+}
+
+.fav.add{
+	background:blueurl("../../images/addFavorite.png");
+	display: block;
+	width:48px;
+	height: 48px;
+}
+
+
+#content-main {
+   font-size: 40px;
+   text-shadow: 2px 2px 8px skyblue;
+   text-align: center;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+
+#list{
+	text-align: right;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	font-size: 12px;
+}
+
+#list a{
+	text-decoration: none;
+	font-size: 12px;
+	color: black;
+}
+
+
+#codelet-title{
+   font-size: 20px;
+   text-decoration: none;
+   color: grey;
+}
+
+
+
+#codelet-table table {
+   
+   width: 800px;
+   margin: auto;
+   margin-top: 70px;
+   border: 1px solid red;
+        
+}
+
+#codelet-table table tr td {
+   display: inline-block;
+   vertical-align: middle;
+   border: 1px solid blue;
+}
+
+#codelet-table table td:first-child {
+   width: inherit;
+   height: inherit;
+}
+
+#codelet-table table td:first-child + td {
+   width: 450px;
+   font-size: 10px;
+   color: #6699ff;
+   text-align: left;
+   border-top: 2px solid grey;
+}
+
+#codelet-table table td:first-child + td + td {
+   width: inherit;
+   text-decoration: none;
+}
+
+#codelet-table table td:first-child + td + td + td {
+   width: inherit;
+}
+
+#codelet-list {
+	width: 100%;
+	table-layout: fixed;
+	border-top: 1px solid grey;
+	margin-bottom: 30px
+}
+
+#codelet-list td {
+	height: 40px;
+	
+}
+
+#codelet-list td:first-child {
+	width: 13px;
+}
+
+#codelet-list td:first-child + td {
+	width: 450px;
+	font-size: 10px;
+    color: #6699ff;
+    padding-left: 20px;
+}
+
+#codelet-list td:first-child + td + td {
+	width: 32px;
+	font-size: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td {
+	width: 100px;
+	font-size: 14px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td {
+	width: 70px;
+	font-size: 14px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td + td {
+	width: 100px;
+	font-size: 14px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td + td + td {
+	width: 100px;
+	font-size: 14px;
+    text-align: center;
+}
+
+#save-button{
+	text-align: right;
+	margin-top: 20px;
+}
+
+
+---------------------반응형----------------------
+@media screen and (max-width:360px) {
+	
+
+#fav{
+	background: url();
+	display: block;
+	width:48px;
+	height: 48px;
+}
+
+#fav .active{
+	background:url();
+}
+
+#content-main {
+   font-size: 20px;
+   text-shadow: 2px 2px 8px skyblue;
+   text-align: center;
+   margin-top: 12px;
+   margin-bottom: 12px;
+}
+
+
+#search-form > fieldset{
+	width: 100%;
+}
+
+#search-form input[type='text'] {
+	width: 60px;
+}
+
+
+#list{
+	text-align: right;
+	margin-top: 10px;
+	margin-bottom: 2px;
+	font-size: 6px;
+}
+
+#list a{
+	text-decoration: none;
+	font-size: 6px;
+	color: black
+}
+
+#codelet-title{
+   font-size: 10px;
+   text-decoration: none;
+   color: grey;
+}
+
+#codelet-list {
+	width: 100%;
+	table-layout: fixed;
+	border-top: 1px solid grey;
+	margin-bottom: 15px
+}
+
+#codelet-list td {
+	height: 20px;	
+}
+
+
+
+#codelet-list td:first-child {
+	width: 13px;
+}
+
+#codelet-list td:first-child + td {
+	width: 150px; 225px
+	font-size: 5px;
+    color: #6699ff;
+    padding-left: 10px;
+}
+
+#codelet-list td:first-child + td + td {
+	width: 16px;
+	font-size: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td {
+	width: 50px;
+	font-size: 7px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td {
+	width: 35px;
+	font-size: 7px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td + td {
+	width: 50px;
+	font-size: 7px;
+    text-align: center;
+}
+
+#codelet-list td:first-child + td + td + td + td + td + td {
+	width: 50px;
+	font-size: 7px;
+    text-align: center;
+}
+
+#save-button{
+	text-align: right;
+	margin-top: 10px;
+}
+
+
+
+.langlist{
+	font-size: 8px;
+}
+
+
+#search-form input[type='submit'] {
+	font-size: 5px;
+}
+
+#codelet-list tr td input[value='☆']{
+	font-size: 5px;
+}
+
+#codelet-list tr td input[value='바로 복사']{
+	font-size: 5px;
+}
+
+#codelet-list tr td input[value='미리보기']{
+	font-size: 5px;
+}
+
+#save-button input[value='글쓰기']{
+	font-size: 8px;
+}
+ */ */

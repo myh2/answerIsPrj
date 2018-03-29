@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!-- <bean name="noticeDao" class="net.answeris.web.dao.JdbcNoticeDao" /> 
+		<bean name="memberDao" class="net.answeris.web.dao.JdbcMemberDao" /> -->
+
+	<!-- <context:component-scan base-package="net.answeris.web.dao.mybatis" 
+		/> -->
+	<context:annotation-config />
+
+	<!-- mybatis -->
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:sqlserver://www.answeris.net:1433;databaseName=answeris" />
+		<property name="username" value="answeris" />
+		<property name="password" value="class2d" />
+	</bean>
+		
+	<!--spring transaction --> 
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- <aop:config>
+		<aop:advisor pointcut="bean(*Dao)" advice-ref="transactionAdvice" />
+	</aop:config>
+	
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="exceptionPut" propagation="REQUIRES_NEW" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	
+	<!-- autoProxy -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+
+	<!-- <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" 
+		/> <property name="url" value="jdbc:oracle:thin:@211.238.142.251:1521:orcl" 
+		/> <property name="username" value="c##sist" /> <property name="password" 
+		value="dclass" /> </bean> -->
+	<bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis-log4j2.xml"></property>
+		<property name="mapperLocations" value="classpath:net/answeris/web/dao/mybatis/*.xml" />
+	</bean>
+
+	<bean name="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="sqlSessionFactory" />
+	</bean>
+
+	<!-- File Upload Bean -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="10485760" />
+		<!-- 1048576 bytes = 10 mega bytes -->
+	</bean>
+
+	<bean name="codeletDao" class="net.answeris.web.dao.mybatis.MybatisCodeletDao" />
+	<bean name="answerDao" class="net.answeris.web.dao.mybatis.MybatisAnswerDao" />
+	<bean name="questionDao" class="net.answeris.web.dao.mybatis.MybatisQuestionDao" />
+	<bean name="mainMemberDao" class="net.answeris.web.dao.mybatis.MybatisMainMemberDao" />
+	<bean name="mainMyInfoDao" class="net.answeris.web.dao.mybatis.MybatisMainMyInfoDao" />
+	<bean name="mainSearchDao" class="net.answeris.web.dao.mybatis.MybatisMainSearchDao" />
+	<bean name="mainLoginDao" class="net.answeris.web.dao.mybatis.MybatisMainLoginDao" />
+	<bean name="mainTokenDao" class="net.answeris.web.dao.mybatis.MybatisMainTokenDao" />
+	<bean name="messageDao" class="net.answeris.web.dao.mybatis.MybatisMainMessageDao" />
+
+	<bean name="blogDao" class="net.answeris.web.dao.mybatis.MybatisBlogDao" />
+	<bean name="commentDao" class="net.answeris.web.dao.mybatis.MybatisCommentDao" />
+	<bean name="categoryDao" class="net.answeris.web.dao.mybatis.MybatisCategoryDao" />
+
+	<bean name="languageDao" class="net.answeris.web.dao.mybatis.MybatisLanguageDao" />
+	<bean name="platformDao" class="net.answeris.web.dao.mybatis.MybatisPlatformDao" />
+
+	<bean name="blogLanguageDao" class="net.answeris.web.dao.mybatis.MybatisBlogLanguageDao" />
+
+	<bean name="blogCommentCharge" class="net.answeris.web.dao.mybatis.MybatisBlogCommentCharge" />
+	<bean name="chargeOptionDao" class="net.answeris.web.dao.mybatis.MybatisChargeOptionDao" />
+	<bean name="blogGoodDao" class="net.answeris.web.dao.mybatis.MybatisBlogGoodDao" />
+	<bean name="blogHateDao" class="net.answeris.web.dao.mybatis.MybatisBlogHateDao" />
+</beans>

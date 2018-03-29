@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.MainTokenDao">
+	<select id="get" resultType="net.answeris.web.model.MainToken">
+		SELECT email, token, regTime
+		FROM EmailVerify
+		WHERE email = #{email}
+	</select>
+	
+	<select id="getToken" resultType="net.answeris.web.model.MainToken">
+		SELECT email,regTime
+		FROM EmailVerify
+		WHERE token = #{token}
+	</select>
+	
+	<insert id="add" parameterType="net.answeris.web.model.MainToken">
+		INSERT INTO EmailVerify
+		(email, token, regTime)
+		VALUES
+		(#{email}, #{token}, #{regTime})
+	</insert>	
+	
+	<update id="update" parameterType="net.answeris.web.model.MainToken">
+		UPDATE EmailVerify
+		SET	email= 	#{email}, 	 
+			token= 	#{token},
+			regTime= #{regTime}
+		WHERE Email = #{email}
+	</update>
+</mapper>

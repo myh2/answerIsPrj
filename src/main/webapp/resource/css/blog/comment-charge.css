@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+
+.hidden{
+	display: none;
+}
+
+#comment-charge-option > select{
+	width: 100%;
+}
+
+textarea{
+	width: Calc(100% - 2px);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#comment-charge-submit-button{
+	width: 50%;
+}

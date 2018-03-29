@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+/* --------------Ace Code Editor Style-------------- */
+#texthide {
+   display: none;
+}
+
+ #code0, #code1, #code2, #code3, #code4, #code5, #code6, #code7, #code8, #code9 {
+   width: 920px;
+   height: 500px;
+   font-size: 14px;
+   border-bottom: 2px solid #999;
+
+}
+
+ul.app_cat_ul {
+   padding: 0px;
+   list-style: none;
+   overflow: hidden;
+}
+
+ul.app_cat_ul li a:hover {
+   background-color: #EEE;
+}
+/* nav */
+ul.nav_ul {
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   overflow: hidden;
+}
+
+ul.nav_ul li {
+   float: left;
+   margin-right: 3px;
+}
+
+ul.nav_ul li a {
+   padding: 12px;
+   display: block;
+   color: #555;
+   background-color: #FFF;
+   border: 1px solid #EEE;
+}
+
+ul.nav_ul li a:hover {
+   background-color: #EEE;
+}
+
+ul.ul_buttons li a {
+   margin: 5px 0px;
+   color: #555;
+   background-color: #FFF;
+   border: 1px solid #C0C0C0;
+}
+/* ▲▲▲▲▲▲▲▲▲ Ace Editor Style ▲▲▲▲▲▲▲▲▲ */
+@media screen and (max-width:375px) {
+	#code0, #code1, #code2, #code3, #code4, #code5, #code6, #code7, #code8, #code9 {
+	   width: 99%;
+	   height: 400px;
+	   font-size: 9px;
+	   border-bottom: 2px solid #999;
+	   margin: 0 auto;
+	
+	}
+}

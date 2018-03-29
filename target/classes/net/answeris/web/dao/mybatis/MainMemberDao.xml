@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.MainMemberDao">
+	<select id="getId" resultType="net.answeris.web.model.MainMember">
+		SELECT Id, Password, Email, Name, Birthday, Nickname, Experience
+		FROM Member
+		WHERE Id = #{param1}
+	</select>	
+	<select id="getNickName" resultType="net.answeris.web.model.MainMember">
+		SELECT Id, Password, Email, Name, Birthday, Nickname, Experience
+		FROM Member
+		WHERE Nickname = #{param1}
+	</select>
+	
+	<select id="getEmail" resultType="net.answeris.web.model.MainMember">
+		SELECT Id, Password, Email, Name, Birthday, Nickname, Experience
+		FROM Member 
+		WHERE Email = #{param1}
+	</select>
+	
+	<select id="checkEmail" resultType="int">
+		SELECT count(*)
+		FROM Member
+		WHERE Email = #{param1}
+	</select>
+	
+	<select id="checkId" resultType="int">
+		SELECT count(*)
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="checkNickName" resultType="int">
+		SELECT count(*)
+		FROM Member
+		WHERE Nickname = #{param1}
+	</select>
+	
+	<insert id="add" parameterType="net.answeris.web.model.MainMember">
+		INSERT INTO MEMBER
+		(Id, Password, Email, Name, Birthday, Nickname, Experience, JobDetail)
+		VALUES
+		(#{id}, #{password}, #{email}, #{name}, #{birthDay}, #{nickName}, #{experience}, NULL);
+		
+		INSERT INTO MemberLanguage
+		(MemberId, LanguageCode)
+		VALUES
+		(#{id}, NULL);
+		
+		INSERT INTO MemberPlatform
+		(MemberId, PlatformCode)
+		VALUES
+		(#{id}, NULL);
+		
+		INSERT INTO MemberJob
+		(MemberId, JobCode)
+		VALUES
+		(#{id}, NULL);
+	</insert>	
+	<update id="update" parameterType="net.answeris.web.model.MainMember">
+		UPDATE MEMBER
+		SET	Id= 	#{id}, 	Password= 	#{password}, 					Email= 		#{email}, 
+			Name= 	#{name},Birthday= 	#{birthDay},					Nickname=	#{nickName},
+			Experience= #{experience}
+		WHERE Email = #{email}
+	</update>
+	<delete id="withdraw">
+		DELETE FROM Member
+		WHERE Email = #{param1}
+	</delete>
+	
+		<select id="findId" resultType="net.answeris.web.model.MainMember">
+		SELECT Id, Email, Name, Birthday
+		FROM Member
+		WHERE Name = #{param1}
+	</select>
+	
+	<select id="findPassword" resultType="net.answeris.web.model.MainMember">
+		SELECT Id, Email, Name, Birthday
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<update id="updatePwd" >
+		UPDATE MEMBER
+		SET	Password= #{param2} 						
+		WHERE Id = #{param1}
+	</update>
+	
+</mapper>

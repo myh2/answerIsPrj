@@ -1,0 +1,812 @@
+@CHARSET "UTF-8";
+
+.hidden{
+	display: none;
+}
+
+#content{
+	width:360px;
+	margin-top:50px;
+}
+
+/* ---------------------------answers-header style------------------------- */
+
+#answers-header{
+	display:flex;
+	justify-content:center;
+}
+
+#answers-header ul{
+	margin-top:10px;
+	overflow: hidden;
+}
+
+#answers-header li{
+	float: left;
+	width:112px;
+	text-align:center;
+	background:gray;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+#answers-header li:hover{
+	background: #979797;
+}
+
+#answers-header li:first-child{
+	background: rgb(242,242,242);
+	border-radius:10px 0px 0px 10px;
+}
+
+#answers-header li:last-child{
+	border-radius:0px 10px 10px 0px;
+}
+
+#answers-header li a{
+	text-decoration: none;
+	color:black;
+}
+
+
+/* -------------answer-all style--------------- */
+
+#answer-all{
+	
+	width:360px;
+	height:inherit;
+	/* border: 1px solid  red; */
+	
+}
+
+#answer-all .answer-all-table{
+	width:340px;
+	padding-bottom:10px;
+}
+
+#answer-all .answer-all-table a{
+	text-decoration: none;
+	color:black;
+}
+
+#answer-all .answer-all-table dl{
+	border-radius: 10px;
+}
+
+#answer-all .answer-all-table dl{
+	margin-bottom:20px;
+	overflow: hidden;
+	background: rgb(242,242,242);
+	padding:10px;
+}
+
+#answer-all .code{
+	float:left;
+}
+
+#answer-all .title{
+	cursor:pointer;
+	float:left;
+	height:50px;
+	width:100%;
+	font-family: "굴림", "돋움", "sans-serif";
+	color:rgb(247,150,70);
+	text-indent: 10px; 
+	line-height:50px;
+	font-weight: bold;
+}
+
+	#answer-all .answer-all-table .title a{
+		text-decoration: none;
+		color:rgb(247,150,70);
+	}
+
+#answer-all .writer{
+	cursor:pointer;
+	float:left;
+	width:100px;
+	height:20px;
+	font-family: "굴림", "돋움", "sans-serif";
+	color:rgb(204,198,167);
+	line-height:20px;
+	font-size:12px;
+	text-align: left;
+}
+
+#member-menu{
+	display:none;
+	background: white;
+	border:1px solid #808080;
+	border-radius:10px 10px 10px 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-top:10px;
+}
+
+#answer-all .regdate{
+	float:right;
+	height:20px;
+	font-family: "굴림", "돋움", "sans-serif";
+	color:rgb(204,198,167);
+	line-height:20px;
+	font-size:12px;
+	text-align: center;
+}
+
+#answer-all .hit{
+	float:right;
+	height:20px;
+	font-family: "굴림", "돋움", "sans-serif";
+	color:rgb(204,198,167);
+	line-height:20px;
+	font-size:12px;
+	text-align: center;
+	margin-left:10px;
+}
+
+#answer-all .content{
+	cursor:pointer;
+	height:65px;
+	font-family: "굴림", "돋움", "sans-serif";
+	color:black;
+	white-space:normal;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	float: left;
+    width: 320px;
+    margin-top:10px;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+#answer-all .hashtag{
+	width:190px;
+	height:25px;
+	font-family: "굴림", "돋움", "sans-serif";
+	font-size:12px;
+	color:rgb(83,131,190);
+	line-height: 25px;
+	padding-left:10px;
+	float: left;
+}
+
+#answer-all .comment{
+	height:25px;
+	color:rgb(196,189,151);
+	font-family: "굴림", "돋움", "sans-serif";
+	font-size:12px;
+	line-height: 25px;
+	float:left;
+}
+
+#answer-all .like{
+	padding-left:10px;
+	width:50px;
+	float:left;
+	height:25px;
+	color:rgb(196,189,151);
+	font-family: "굴림", "돋움", "sans-serif";
+	font-size:12px;
+	line-height: 25px;
+}
+
+#answer-all .hate{
+	padding-left:10px;
+	width:50px;
+	float:left;
+	height:25px;
+	color:rgb(196,189,151);
+	font-family: "굴림", "돋움", "sans-serif";
+	font-size:12px;
+	line-height: 25px;
+}
+
+#moreList input{
+	margin-top:10px;
+	margin-bottom: 10px;
+	
+}
+
+#moveTop input{
+  float:right;
+  position: fixed;
+  left: 85%;
+  bottom: 20px;
+}
+
+/* --------------------------------------search-form style------------------------------- */
+
+#search-form{
+	overflow: hidden;
+	width:100%;
+}
+
+#search-form fieldset{
+	text-align: center;
+	margin-bottom:20px;
+	margin-top:none;
+}
+
+/* ------------------------------------------------Comment-list Style--------------------------------- */
+
+#comment-list {
+	display: none;
+}
+
+/* --------------------------------PC버전 style------------------------------------- */
+@media all and (min-width:361px){
+	
+	.hidden{
+	display: none;
+	}
+
+
+	#content{
+		width:100%;
+		margin-top:50px;
+		margin:0 auto;
+		display: flex;
+		justify-content:center;
+		flex-direction:column;
+	}
+	
+/* ---------------------------answers-header style------------------------- */
+
+#answers-header{
+	display:flex;
+	justify-content:center;
+	padding-left:10px;
+	padding-right:10px;
+	margin: 0 auto;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#answers-header ul{
+	overflow: hidden;
+	margin:0 auto;
+}
+
+#answers-header li{
+	float: left;
+	width:112px;
+	text-align:center;
+	background:gray;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+#answers-header li:hover{
+	background: #979797;
+}
+
+#answers-header li:first-child{
+	background: rgb(242,242,242);
+	border-radius:10px 0px 0px 10px;
+}
+
+#answers-header li:last-child{
+	border-radius:0px 10px 10px 0px;
+}
+
+#answers-header li a{
+	text-decoration: none;
+	color:black;
+}
+
+/* ---------------sort-form style--------------------------------- */
+
+	#content .sort-div{
+		overflow:normal;
+		float:none;
+		width:100%;
+		margin-top:4px;
+		
+	}
+
+	#content > div > ul {
+		float:right;
+		display:inline-block;
+		overflow:hidden;
+	}
+	
+	#content > div > ul > li{
+		float: right;
+	}
+	
+	#content > div > ul > li > a{
+		color:black;
+	}
+
+	
+/* -------------answer-all style--------------- */
+
+	#answer-all{
+		
+		width:100%;
+		height:inherit;
+		/* border: 1px solid  red; */
+		display: flex;
+		flex-direction:column;
+		
+	}
+	
+	#answer-all .answer-all-table{
+		width:100%;
+		padding-left:0px;
+		padding-right:0px;
+		padding-bottom:10px;
+		margin:0 auto;
+		display: flex;
+		flex-direction:column;
+	}
+	
+	#answer-all .answer-all-table a{
+		text-decoration: none;
+		color:black;
+	}
+	
+	#answer-all .answer-all-table dl{
+		border-radius: 0px;
+		margin-bottom:20px;
+		overflow: hidden;
+		background: none;
+		padding:10px;
+		border:1px solid black
+	}
+	
+	#answer-all .code{
+		float:left;
+		width:100%;
+	}
+	
+	#answer-all .title{
+		cursor:pointer;
+		float:left;
+		height:40px;
+		width:100%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(247,150,70);
+		text-indent: 10px; 
+		line-height:40px;
+		font-weight: bold;
+		border-bottom:1px dotted gray;
+	}
+	
+	#answer-all .answer-all-table .title a{
+		text-decoration: none;
+		color:rgb(247,150,70);
+	}
+	
+	#answer-all .writer{
+		cursor:pointer;
+		float:left;
+		width:45px;
+		margin-right:40%;
+		height:20px;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: left;
+		text-indent:10px;
+		/* padding-right:10px; */
+	}
+	
+	#member-info{
+		display:none;
+		background: white;
+		border:1px solid #808080;
+		border-radius:10px 10px 10px 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-top:10px;
+	}
+	
+	#answer-all .regdate{
+		float:left;
+		height:20px;
+		width:45%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: center;
+		/* padding-right:10px; */
+	}
+	
+	#answer-all .hit{
+		float:left;
+		height:20px;
+		width:5%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: center;
+		margin-left:0px;
+	}
+	
+	#answer-all .content{
+		cursor:pointer;
+		height:65px;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:black;
+		white-space:normal;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		float: left;
+	    width: 100%;
+	    margin-top:10px;
+	    margin-bottom:10px;
+	    word-wrap: break-word;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 3;
+	    -webkit-box-orient: vertical;
+	}
+	
+	#answer-all .hashtag{
+		width:80%;
+		height:25px;
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		color:rgb(83,131,190);
+		line-height: 25px;
+		padding-left:0px;
+		float: left;
+	}
+	
+	#answer-all .comment{
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+		float:left;
+	}
+	
+	#answer-all .like{
+		padding-left:0px;
+		width:10%;
+		float:left;
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+	}
+	
+	#answer-all .hate{
+		padding-left:0px;
+		width:10%;
+		float:left;
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+	}
+	
+	#moreList input{
+		margin-top:10px;
+		margin-bottom: 10px;
+		
+	}
+	
+	#moveTop input{
+	  float:right;
+	  position: fixed;
+	  left: 85%;
+	  bottom: 20px;
+	}
+		
+/* --------------------------------------search-form style------------------------------- */
+
+	#search-form{
+		overflow: normal;
+		float: none;
+		width:100%;
+	}
+	
+	#search-form fieldset{
+		text-align: center;
+		margin-bottom:0px;
+		margin-top:none;
+	}
+	
+
+}
+
+/* --------------------------------PC버전 style------------------------------------- */
+@media all and (min-width:1024px){
+	
+	.hidden{
+	display: none;
+	}
+
+
+	#content{
+		width:100%;
+		margin-top:50px;
+		margin:0 auto;
+		display: flex;
+		justify-content:center;
+		flex-direction:column;
+	}
+	
+/* ---------------------------answers-header style------------------------- */
+
+#answers-header{
+	display:flex;
+	justify-content:center;
+	padding-left:10px;
+	padding-right:10px;
+	margin: 0 auto;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#answers-header ul{
+	overflow: hidden;
+	margin:0 auto;
+}
+
+#answers-header li{
+	float: left;
+	width:112px;
+	text-align:center;
+	background:gray;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+#answers-header li:hover{
+	background: #979797;
+}
+
+#answers-header li:first-child{
+	background: rgb(242,242,242);
+	border-radius:10px 0px 0px 10px;
+}
+
+#answers-header li:last-child{
+	border-radius:0px 10px 10px 0px;
+}
+
+#answers-header li a{
+	text-decoration: none;
+	color:black;
+}
+
+/* ---------------sort-form style--------------------------------- */
+
+	#content .sort-div{
+		overflow:normal;
+		float:none;
+		width:100%;
+		margin-top:4px;
+		
+	}
+
+	#content > div > ul {
+		float:right;
+		display:inline-block;
+		overflow:hidden;
+	}
+	
+	#content > div > ul > li{
+		float: right;
+	}
+	
+	#content > div > ul > li > a{
+		color:black;
+	}
+
+	
+/* -------------answer-all style--------------- */
+
+	#answer-all{
+		
+		width:100%;
+		height:inherit;
+		/* border: 1px solid  red; */
+		display: flex;
+		flex-direction:column;
+		
+	}
+	
+	#answer-all .answer-all-table{
+		width:100%;
+		padding-left:0px;
+		padding-right:0px;
+		padding-bottom:10px;
+		margin:0 auto;
+		display: flex;
+		flex-direction:column;
+	}
+	
+	#answer-all .answer-all-table a{
+		text-decoration: none;
+		color:black;
+	}
+	
+	#answer-all .answer-all-table dl{
+		border-radius: 0px;
+		margin-bottom:20px;
+		overflow: hidden;
+		background: none;
+		padding:10px;
+		border:1px solid black
+	}
+	
+	#answer-all .code{
+		float:left;
+		width:100%;
+	}
+	
+	#answer-all .title{
+		cursor:pointer;
+		float:left;
+		height:40px;
+		width:100%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(247,150,70);
+		text-indent: 10px; 
+		line-height:40px;
+		font-weight: bold;
+		border-bottom:1px dotted gray;
+	}
+	
+	#answer-all .answer-all-table .title a{
+		text-decoration: none;
+		color:rgb(247,150,70);
+	}
+	
+	#answer-all .writer{
+	
+		cursor:pointer;
+		float:left;
+		width:45px;
+		margin-right:40%;
+		display:block;
+		height:20px;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: left;
+		text-indent:10px;
+		/* padding-right:10px; */
+	}
+	
+	#member-info{
+		display:none;
+		background: white;
+		border:1px solid #808080;
+		border-radius:10px 10px 10px 10px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-top:10px;
+	}
+	
+	#answer-all .regdate{
+		float:left;
+		height:20px;
+		width:45%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: center;
+		/* padding-right:10px; */
+	}
+	
+	#answer-all .hit{
+		float:left;
+		height:20px;
+		width:5%;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:rgb(204,198,167);
+		line-height:20px;
+		font-size:12px;
+		text-align: center;
+		margin-left:0px;
+	}
+	
+	#answer-all .content{
+		cursor:pointer;
+		height:65px;
+		font-family: "굴림", "돋움", "sans-serif";
+		color:black;
+		white-space:normal;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		float: left;
+	    width: 100%;
+	    margin-top:10px;
+	    margin-bottom:10px;
+	    word-wrap: break-word;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 3;
+	    -webkit-box-orient: vertical;
+	}
+	
+	#answer-all .hashtag{
+		width:80%;
+		height:25px;
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		color:rgb(83,131,190);
+		line-height: 25px;
+		padding-left:0px;
+		float: left;
+	}
+	
+	#answer-all .comment{
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+		float:left;
+	}
+	
+	#answer-all .like{
+		padding-left:0px;
+		width:10%;
+		float:left;
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+	}
+	
+	#answer-all .hate{
+		padding-left:0px;
+		width:10%;
+		float:left;
+		height:25px;
+		color:rgb(196,189,151);
+		font-family: "굴림", "돋움", "sans-serif";
+		font-size:12px;
+		line-height: 25px;
+	}
+	
+	#moreList input{
+		margin-top:10px;
+		margin-bottom: 10px;
+		
+	}
+	
+	#moveTop input{
+	  float:right;
+	  position: fixed;
+	  left: 85%;
+	  bottom: 20px;
+	}
+		
+/* --------------------------------------search-form style------------------------------- */
+
+	#search-form{
+		overflow: normal;
+		float: none;
+		width:100%;
+	}
+	
+	#search-form fieldset{
+		text-align: center;
+		margin-bottom:0px;
+		margin-top:none;
+	}
+	
+	/* ------------------------writer click style------------------------------- */
+	#writer-inf:hover{
+		background: #EAEAEA;
+	}
+}

@@ -1,0 +1,123 @@
+@CHARSET "UTF-8";
+
+@import url(../reset.css);
+@import url(../inc/layout.css);
+@import url(../inc/header.css);
+@import url(../codelet-layout.css);
+@import url(ace.css);
+
+
+.title-right{
+	float:right;	
+}
+
+/* .margin {
+   margin-top: 10px;
+}
+
+#content-main {
+   font-size: 40px;
+   text-shadow: 2px 2px 8px skyblue;
+   text-align: center;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+
+#save-button{
+	text-align: right;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+
+#search, #reg {
+   display: inline-block;
+   border: 1px pink solid;
+}
+
+
+
+#reg a {
+   font-size: 20px;
+}
+
+#title {
+   display: inline-block;
+   margin-top: 25px;
+   border-bottom: 2px solid gray;
+   width: 100%;
+   height: 40px;
+   font-size: 20px;
+   font-family: "맑은 고딕";
+   text-decoration: none;
+   vertical-align: middle;
+   line-height: 20px;
+   color: grey;
+
+}
+
+#title >dl:first-child{
+   font-size: 25px;
+   padding-left: 10px;
+}
+
+#title >dl:first-child +dl{
+   color:red;
+   padding-right: 10px;
+}
+
+
+
+.regdate{
+
+   font-size: 15px;
+   
+   padding-right: 10px;
+
+}
+
+#drop-menu {
+   display: inline-block;
+   background: #f9f9f9;
+   width: 425px;
+   height: 500px;
+}
+
+.title {
+   float: left;
+}
+
+.regdate {
+   float: right;
+}
+
+.button-family {
+   position: absolute;
+   right: 0px;
+}
+
+#sns ul li{
+   display: inline-block;
+   
+}
+---------------------반응형----------------------
+@media screen and (max-width:360px) {
+   #search, #reg {
+      display: inline-block;
+   }
+   #reg a {
+      font-size: 15px;
+   }
+   #title {
+      border: 1px red solid;
+      height: 20px;
+      font-size: 13px;
+      
+   }
+   #sns {
+      display: none;
+   }
+}
+ */

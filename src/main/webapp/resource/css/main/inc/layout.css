@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+.content-container {position: relative; width: 340px; left: 50%; margin-left: -170px; }
+
+#header {position: relative; background-color: #eee; border-bottom: 1px solid #aaa; }
+
+#customer-menu {height: 59px; }
+
+#main {position: relative; display: block; height: 510px; padding-top: 20px; }
+
+#footer {height: 49px; background-color: #e7e7e7; border-top: 1px solid #aaa; }

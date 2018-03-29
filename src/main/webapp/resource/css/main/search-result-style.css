@@ -1,0 +1,224 @@
+@CHARSET "UTF-8";
+
+html, body, * {
+	margin: 0px;
+	border: 0px;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	font-family:
+}
+
+/*--- text style -------------------------------------------*/
+.strong {
+	color: #fd7e00 !important;
+	font-weight: bold;
+}
+
+.clearfix::after {
+	display: block;
+	content: " ";
+	font-size: 0;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+/* #main-menu{
+    border: 1px solid red; 
+    font-size: 18px; 
+    //display: inline-block;
+	text-align: center;
+} */
+.hidden {
+	display: none;
+}
+
+.button {
+	overflow: hidden;
+	border: none;
+	text-indent: -9999px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/*--- main style -------------------------------------------*/
+#body {
+	
+}
+
+.content-wrapper {
+	text-align: center;
+}
+
+/* #search-form fieldset input[type="text"]{
+   width:230px;
+   border:2px solid #ABF200;
+   vertical-align: middle;
+   text-indent: 5px;
+}
+ */
+#main-menu {
+	border-bottom: lightgray 1px solid;
+	padding-bottom: 8px;
+	
+}
+
+#main-menu ul {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 1em; //
+	border: 1px solid red;
+	text-align: center;
+}
+
+#main-menu>ul>li {
+	display: flex;
+	justify-content: space-around; 
+	border-left: 1px solid lightgray;
+	display: inline-block;
+	padding-right: 12%; 
+	padding-left : 12%;
+	font-weight: bold;
+	padding-left: 12%;
+}
+#main-menu>ul>li a{
+	color: #444;
+}
+
+#main-menu>ul>li:first-child {
+	border: none;
+}
+
+.section_head {
+	margin-top: 1em;
+	margin-left: 1em;
+}
+
+.answeris_section>li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: 9px;
+	margin-right: 9px;
+	text-align: left;
+}
+
+.more_section {
+	text-align: right;
+	margin-right: 1em;
+}
+
+.content {
+	/* 한 줄 자르기 */
+	display: inline-block;
+	/*  width: 300px; */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* 여러 줄 자르기 추가 스타일 */
+	white-space: normal;
+	line-height: 1.2;
+	min-height: 1.2em;
+	max-height: 3.6em;
+	text-align: left;
+	word-wrap: break-word;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+.content a:LINK{
+   color: #444;
+}
+.content a:VISITED{
+   color: #444;
+}
+.content a:HOVER{
+   color: #444;
+}
+.content a:ACTIVE{
+   color: #444;
+}
+.content a{
+	font-size: 15px;
+	
+}
+
+
+
+/*--- answeris-section-style -------------------------------------------*/
+.section_head h3 {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 10px;
+	background: #eee;
+}
+
+.answeris_section {
+	margin-top: 20px;
+	background: #eee;
+	border-top: 5px #eee solid;
+	border-bottom: 5px #eee solid;
+}
+
+.answeris_section dt, .answeris_section dd {
+	background-color: white;
+}
+
+.answeris_section li {
+	border: 15px white solid;
+	border-bottom: none;
+}
+
+.answeris_section li:first-child {
+	margin-top: 25px;
+}
+/*제목*/
+.title {
+	font-weight: bold;
+	font-size: 15px;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	text-decoration: underline;
+	padding-bottom: 4px;
+	background-color: white;
+}
+
+/*아이디*/
+.memberid {
+	color: #B5D234;
+	font-size: 13px;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+}
+/*날짜*/
+.regDate { //
+	border: 1px blue solid;
+	display: inline-block;
+	float: right;
+	margin-left: 90px;
+	font-size: 12px;
+	color: gray;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+}
+
+/*--- more-section-style -------------------------------------------*/
+.more_section {
+	background: #e9ecef;
+	display: inline-block;
+	width: 100%;
+	margin-top: 20px;
+	vertical-align: bottom;
+	line-height: 25px;
+	border-bottom: 1px lightgray solid;
+	border-top: 1px lightgray solid;
+}
+
+.more_section a {
+	margin-right: 10px;
+ 	color: gray;
+}

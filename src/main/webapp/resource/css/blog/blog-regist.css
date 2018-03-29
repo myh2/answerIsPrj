@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+
+#reg-wrapper {
+	background: white;
+	margin: 0 auto;
+}
+
+#regist-header {
+	width: 100%;
+	border: none;
+}
+
+#regist-header ul {
+	font-size: 0px;
+}
+
+#regist-header ul li {
+	display: inline-block;
+	height: 45px;
+	line-height: 45px;
+	border: none;
+	vertical-align: middle;
+}
+
+.cancel {
+	width: 45px;
+	background: url("../../images/btn-cancel.png") no-repeat center center;
+}
+
+.cancel>a {
+	text-indent: -999px;
+	font-size: 15px;
+}
+
+.cancel+li {
+	width: calc(100% - 135px);
+	font-size: 20px;
+	text-align: center;
+}
+
+.file-attach {
+	text-indent: -9999px;
+	width: 45px;
+	background: url("../../images/aaaaaa.png") no-repeat center center;
+}
+
+.next-step {
+	text-indent: -9999px;
+	width: 45px;
+	background: url("../../images/btn-right-arrow.png") no-repeat center
+		center;
+}
+
+main {
+	padding-top: 10px;
+}
+
+#write-area dl {
+	display: inline-block;
+	border: none;
+	width: 100%;
+	font-size: 0px;
+}
+
+#write-area dl dt {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#write-area dl dd {
+	display: inline-block;
+	width: 100%;
+	font-size: 16px;
+	padding-top: 10px;
+}
+
+#write-area input[type='text'] {
+	border: none;
+	width: 100%; font-size : 25px;
+	background: white;
+	font-size: 25px;
+}
+
+#write-area input[type='text']:focus {
+	outline: none;
+}
+
+#write-area textarea {
+	border: none;
+	font-size: 20px;
+	/* resize:none; */
+	width: 100%;
+	overflow: visible;
+	background-color: white;
+}
+
+#write-area textarea:focus {
+	outline: none;
+}
+
+@media screen and (min-width: 640px) {
+	#regist-header {
+		display: none;
+	}
+	#reg-wrapper {
+		background: white;
+		display: flex;
+		justify-content: center;
+	}
+	.editable-div{
+		height: 80%;
+	}
+}

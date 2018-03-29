@@ -1,0 +1,134 @@
+﻿@charset "utf-8";
+
+li > a {
+	text-decoration: none;
+}
+
+.hidden {
+	display: none;
+}
+
+/* blog 전체 컨테이너 */
+
+#blog-menu {
+	width: 80%;
+}
+
+/* menu 닫기 버튼 */
+
+#close {
+	padding-left: 220px;
+	padding-top: 10px;
+	margin-bottom:20px;
+}
+
+/* blog 아이콘 메뉴 4개 background로 이미지 삽입 했을 때 */
+
+/* #blog-icon-menu > div > ul > li{
+	float: left;
+	background:url(../images/profile.png) no-repeat left center;
+	width:100px;
+	height:100px;
+	margin-top:0px;
+	padding-left: 20px;
+}
+
+#blog-icon-menu > div >  ul> li + li {
+	background:url(../images/message.png) no-repeat left center;
+	width: 50px;
+	height: 50px;
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li {
+	background:url(../images/qna.png) no-repeat center;
+	width:50px;
+	height:50px;
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li + li {
+	background:url(../images/star.png) no-repeat center;
+	width:50px;
+	height:50px;
+	margin-top: 30px;
+} */
+
+/* blog 아이콘 메뉴 4개 img 태그로 이미지 삽입 했을 때*/
+
+#blog-icon-menu > div {
+	padding: 0px;
+}
+
+#blog-icon-menu > div > ul > li{
+	float: left;
+	padding-left: 5px;
+}
+
+#blog-icon-menu > div >  ul> li + li {
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li {
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li + li {
+	margin-top: 30px;
+}
+
+/* blog 이름 */
+
+#blog-name {
+	clear: both;
+	padding-top: 30px;
+	padding-left: 30px;
+}
+
+#blog-name > div > ul > li:first-child {
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/* blog 이름 밑에 데코레이션 주고 싶으면 해보기 */
+
+/*#blog-name > div > ul > li:last-child {
+	background:url(../images/blog-title-decoration03.png) no-repeat center top;
+	width:180px;
+	height:10px;
+	margin-left: 90px;
+}*/
+
+/* blog 카테고리 */
+
+#blog-category {
+	clear: both;
+	padding-top: 30px;
+	padding-left: 20px;
+}
+
+/* blog 카테고리 대분류 */
+
+.category-b {
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 20px;
+	font-weight: bold;
+	color:#000;
+	line-height: 40px;
+	display:block;
+	
+	border-top: 1px solid #898989;
+	border-bottom: 1px solid #898989;
+	width: 250px;
+}
+
+/* blog 카테고리 소분류 */
+
+.category-s > li > a{
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 16px;
+	color:#333333;
+	padding-left: 10px;
+	line-height: 35px;
+}

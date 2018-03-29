@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="net.answeris.web.dao.mybatis.QuestionDao">
+	
+	<select id="getList" resultType="net.answeris.web.model.Question">
+		
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode  
+			FROM QUESTIONVIEW QV
+			WHERE QV.Id = #{param2}
+		)C
+		WHERE CODE BETWEEN 1 AND 2
+		
+	</select>
+	
+	<select id="getNextList" resultType="net.answeris.web.model.Question">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode , QV.ANSWERNUM 
+			FROM QUESTIONVIEW QV
+			WHERE QV.Id= #{param2}
+		)C
+		WHERE CODE BETWEEN 1 + (2*#{param1}) AND  2+ (2*#{param1})
+
+	</select>
+	
+<!-- 	<select id="get" resultType="net.answeris.web.model.Question">
+		SELECT * FROM QUESTIONVIEW WHERE CODE = #{code}
+	</select> -->
+
+	<select id="getQuest" resultType="net.answeris.web.model.Question">
+		select B.Title Title, M.Nickname Nickname, B.Content Content, Q.Date Regdate , Q.Code Code, Q.BlogCode BlogCode ,  B.HashTag HashTag from Blog B
+			inner join Member M ON B.MemberId = M.Id
+			inner join Question Q ON B.Code = Q.BlogCode
+		where Q.BlogCode = #{param1}
+	</select>
+
+	<select id="getAns" resultType="net.answeris.web.model.Question">
+		select B.Title Title, B.HashTag HashTag, PB.RegDate RegDate, B.Content Content from Blog B
+			inner join PublicBlog PB ON B.Code = PB.BlogCode
+			inner join Answer A ON A.PublicBlogCode =PB.Code
+			inner join Question Q ON A.QuestionCode = Q.Code
+		where Q.Code = #{param1}
+	</select>
+
+	
+	<select id="getPrev" resultType="net.answeris.web.model.Question">
+		SELECT * FROM QUESTIONVIEW WHERE CODE=(SELECT MAX(CONVERT(numeric, CODE)) FROM QUESTIONVIEW WHERE CODE &lt; #{param1})
+	</select>
+	
+	<select id="getNext" resultType="net.answeris.web.model.Question">
+	SELECT * FROM QUESTIONVIEW WHERE CODE=(SELECT MIN(CONVERT(numeric, CODE)) FROM QUESTIONVIEW WHERE CODE &gt; #{param1})
+	</select>
+	
+	<insert id="add" parameterType="net.answeris.web.model.Question">   	 
+	
+	<selectKey order="BEFORE" resultType="String"  keyProperty="code">
+   		SELECT NVL(MAX(TO_NUMBER(CODE)),0)+1 CODE FROM Question
+     </selectKey>
+    	 
+        INSERT INTO QUESTION(CODE, DATE, BLOGCODE) VALUES(#{code}, SYSTIMESTAMP, #{blogCode})
+
+    </insert>
+	
+	<update id="delete">
+		UPDATE BLOG SET MemberId='Admin' WHERE CODE=#{code}
+	</update>
+	
+	<select id="searchListTitle" parameterType="java.lang.String" resultType="net.answeris.web.model.Question">
+			SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode  
+			FROM QUESTIONVIEW QV
+	
+			WHERE QV.Id = #{param2}
+		)C
+		WHERE Title LIKE '%${param1}%'
+	</select>
+	
+	<select id="searchListContent" parameterType="java.lang.String" resultType="net.answeris.web.model.Question">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode  
+			FROM QUESTIONVIEW QV
+	
+			WHERE QV.Id = #{param2}
+		)C
+		WHERE Content LIKE '%${param1}%'
+	</select>
+	
+	<select id="getId" parameterType="java.lang.String" resultType="String">
+		SELECT id FROM MEMBER
+		WHERE nickname = #{param1}
+	</select>
+
+	
+	
+	<!-- 	=============================question-board===================================== -->
+
+	<select id="getBoardList" resultType="net.answeris.web.model.Question">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode
+			FROM QUESTIONVIEW QV
+			WHERE AnswerNum = 0
+		)C
+		WHERE CODE BETWEEN 1 AND 10; 
+	</select>
+	
+	<select id="searchBoardTitle" parameterType="java.lang.String" resultType="net.answeris.web.model.Question">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode
+			FROM QUESTIONVIEW QV
+			WHERE AnswerNum = 0
+		)C
+		WHERE Title LIKE '%${param1}%'
+	</select>
+	
+	<select id="searchBoardContent" parameterType="java.lang.String" resultType="net.answeris.web.model.Question">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, QV.TITLE, QV.CONTENT, QV.Nickname, QV.HASHTAG, QV.REGDATE, QV.BlogCode
+			FROM QUESTIONVIEW QV
+			WHERE AnswerNum = 0
+		)C
+		WHERE Content LIKE '%${param1}%'
+	</select>
+	
+	
+	<select id="getQuestion" resultType="net.answeris.web.model.Question">
+		SELECT * FROM QUESTIONVIEW WHERE CODE = #{code}
+	</select>
+	
+	<select id="getPrevQuestion" resultType="net.answeris.web.model.Question">
+		SELECT * FROM QUESTIONVIEW WHERE CODE=(SELECT MAX(CONVERT(numeric, CODE)) FROM QUESTIONVIEW WHERE CODE &lt; #{param1})
+	</select>
+	
+	<select id="getNextQuestion" resultType="net.answeris.web.model.Question">
+	SELECT * FROM QUESTIONVIEW WHERE CODE=(SELECT MIN(CONVERT(numeric, CODE)) FROM QUESTIONVIEW WHERE CODE &gt; #{param1})
+	</select>
+	
+	</mapper>

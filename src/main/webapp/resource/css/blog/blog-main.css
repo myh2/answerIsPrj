@@ -1,0 +1,316 @@
+@CHARSET "UTF-8";
+body{
+	/* background:url("../../images/blog/theblur.jpg"); */
+	font-family:'roboto', sans-serif;
+}
+body{
+	/* background:#898788; */
+	width:100%;
+	background:rgb(236,236,236);
+}
+main{
+	display: inline-block;
+
+}
+.blog-contents{
+/* 	display:inline-block; */
+
+}
+	
+@media all and (min-width:769px){
+
+	.hidden768{
+		display:none;
+	}
+
+	.bulletin-container{
+		width:100%;
+		margin-top:10px;
+		/* float:left; */
+		overflow:hidden;
+		background:white;
+		
+		padding:20px;
+		
+		
+		position:relative;
+		opacity:30%;
+	
+	}
+	
+	.bulletin-title{
+		
+	}
+		.bulletin-title h1{
+			font-size:25px;
+			font-style:none;
+			height:40px;
+			padding:3px;
+			
+			line-height:20px;
+			
+		}
+	.content{
+		display: inline-block;
+	    color:rgb(131,132,134);
+		
+		margin-bottom:10px;
+		    
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: normal;
+	    line-height: 1.2;
+	   
+	   	height:75px;
+	    text-align: left;
+	    word-wrap: break-word;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 4;
+	    -webkit-box-orient: vertical;
+	} 
+	
+	.hash-tag{
+		margin-bottom:10px;
+	}
+	.comm-mod-container{
+		
+	}
+	.comm-mod-container div a{
+		text-decoration: none;
+		
+	}
+	.comm-mod-container div{
+		float:left;
+		margin-right:10px;	
+		
+		
+	}
+	#btn-blog-write{
+		position:fixed;
+		top:90%;
+		left: 80%;
+	}
+	
+	#btn-blog-write img{
+		width: 50px;
+		height: 50px;
+	}
+}
+@media all and (max-width:768px){
+
+	
+	
+	.bulletin-container{
+		width:45%;
+		height:206px;
+		margin:10px;
+		padding:10px;
+		box-sizing:border-box;
+		float:left;
+		
+		position:reletive;
+		
+	  	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	  	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	   	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	   	background-color:#ffffff;
+	}
+	.bulletin-title h1{
+		font-size:15px;
+		font-weight:bold;
+	}
+	.blog-contents > div:nth-child(even):after{
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.comm-mod-container{
+		position:absolute;
+		bottom:0;
+	}
+	
+	#btn-blog-write{
+		position:fixed;
+		top:90%;
+		left: 80%;
+	}
+	
+	#btn-blog-write img{
+		width: 50px;
+		height: 50px;
+	}
+	
+	
+}
+
+/* --------------------------------박현욱님 부분---------------------- */
+
+@media all and (max-width: 360px){
+	/* ---------------제목 날짜 링크 부분------------------------- */
+	.bulletin-container{
+		width:calc(100% - 20px);
+		
+		margin-bottom:10px;
+		padding:0;
+	}
+	.bulletin-title{
+		position: relative;
+	}
+	.bulletin-title h1{
+		
+		font-size: 20px;
+		
+	}
+	.bulletin-title:after{
+		clear:both;
+		content:"";
+		display:block;
+	}
+	.date{
+		position: absolute;
+		top:0;
+		right:0;
+		font-size: 10px;
+	}
+	.link{
+		float:right;
+		font-size:10px;
+	}
+	/* ---------------------컨텐츠 부분---------------------- */
+ 	
+	.content{
+	display: inline-block;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2;
+   
+   	height:75px;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+	} 
+	/* ---------------------해쉬태그 부분---------------------- */
+	.hash-tag{
+		
+		border-bottom: 1px dotted grey;
+		
+		padding-bottom: 5px;
+		
+	}
+	.hash-tag li{
+		float:left;
+		width:auto;
+		font-size:10px;
+		
+		margin-right:5px;
+		color:blue;
+	}
+	.hash-tag li:first-child{
+		margin-left:0px;
+	}
+	.hash-tag ul{
+		margin:0;
+		list-style:none;
+		
+		padding: 0;
+	}
+	.hash-tag ul:after{
+		clear:both;
+		content:"";
+		display:block;		
+	}
+	
+	/* ---------------------댓글 좋아요 부분---------------------- */	
+	.comm-mod-container{
+		
+		position:relative;
+		margin-top:5px;
+	}
+	
+	.comm-mod-container div{
+		float:left;
+		margin-right:10px;	
+		
+		
+	}
+	
+	.comm{
+
+
+          
+	}
+	.comm ul{
+		margin:0;
+		list-style: none;
+		padding: 0;
+		
+		display: inline-block;
+	}
+	.comm li{
+		float:left;
+		width:auto;
+		
+	}
+	.comm li a{
+		text-decoration: none;
+		margin-right:5px;
+	}
+	/* ---------------------수정 삭제 부분---------------------- */	
+	.modify{
+
+          
+	}
+	.modify ul{
+		margin:0;
+		list-style: none;
+		
+		display: inline-block;
+		padding:0;
+		position: absolute;
+		top:0;
+		right:0;
+	}	
+	.modify li{
+		float:left;
+		width:auto;
+		display: inline-block;
+	}
+	.modify li a{
+		text-decoration: none;
+		margin-right:5px;
+	
+	}
+	
+	/*---------더보기 버튼 --------*/
+	.add-btn-container{
+		text-align: center;
+	}
+	.content-add{	
+		display: inline-block;
+	}
+	
+	/* 블로그 글쓰기 버튼 */
+	#btn-blog-write{
+		position:fixed;
+		top:90%;
+		left: 80%;
+	}
+	
+	#btn-blog-write img{
+		width: 50px;
+		height: 50px;
+	}
+	
+
+}
+
+
+/* -------------박현욱님 부분------------------- */
+
+

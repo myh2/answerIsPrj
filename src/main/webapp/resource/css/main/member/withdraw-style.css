@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+
+
+.navigation{
+	display: inline-block;
+	border: 1px solid red;
+	vertical-align: middle;
+}
+.navigation > * {
+	float: left;
+	vertical-align: middle;
+}
+.navigation > * > * {
+	float: left;
+	padding: 1em;
+	vertical-align: middle;
+}
+.navigation:after{
+	display: block;
+	clear: both;
+	line-height: 0px;
+	height: 0px;
+	visibility: hidden;
+}
+
+
+.fld_comm .info_agree .info_user {
+	position:relative;
+	margin-top:10px;
+	border:1px solid #e1e1e1;border-radius:2px;
+	background-color:#fff
+}
+
+.info_user .list_agree{
+	display: inline-block;
+}
+
+.list_agree {
+	border: 1px solid red;
+	width: 90%;
+}
+.list_agree > dt{
+	float: left;
+	font-weight: bold;
+	text-decoration: underline;
+	vertical-align: middle;
+	border: 1px solid blue;
+	width: 13%
+}
+
+.list_agree > dd{
+	float: left;
+	padding: 1em;
+	vertical-align: middle;
+	border: 1px solid blue;
+
+}
+
+.info_user .list_agree:after{
+	display: block;
+	clear: both;
+	line-height: 0px;
+	height: 0px;
+	visibility: hidden;
+
+}

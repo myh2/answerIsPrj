@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+/*-------------- class style ---------------- */
+.hidden {
+	display: none;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+	margin-top: 40px;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+
+/*-------------- sign-in style---------------- */
+#sign-in {
+	margin-top: 30px;
+}
+
+#sign-in label {
+	margin-left: 25%;
+	margin-top: 20px;
+	display: block;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+}
+
+#sign-in div input[type='text'] {
+	margin-left: 25%;
+	width: 50%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	width: 50%;
+}
+
+#sign-in div input[type="password"] {
+	margin-left: 25%;
+	width: 50%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	width: 50%
+}
+
+#sign-in div input[type="submit"] {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	color: white;
+	width: 60px;
+	height: 25px;
+	background-color: #B5D234;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	margin: 0px;
+	width: 60px;
+}
+
+#sign-in div input[type="submit"]:hover {
+	color: lightgray;
+}
+
+#submit {
+	display: inline-block;
+	margin-top: 7%;
+	margin-left: 40%;
+}
+/* #sign-in fieldset>div {
+	margin-top: 15px;
+} */
+#menu {
+	float: left;
+	display: inline-block;
+	margin-left: 15%;
+}
+
+#menu ul {
+	margin-top: 15%;
+}
+
+#menu>ul>li {
+	float: left;
+	padding-left: 15px;
+	background: url("../../../images/main/bar.png") no-repeat 10px center;
+}
+
+#menu>ul>li:first-child {
+	background: none;
+}
+
+#menu a {
+	margin-top: 7%;
+	color: gray;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 13px;
+	display: center;
+}
+
+#sign-in div:first-child {
+	margin-top: 0px;
+}

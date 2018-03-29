@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+
+/* nav */
+
+li > a {
+	text-decoration: none;
+}
+
+#blog-nav {
+	width:80%;
+	position: fixed;
+	height: 100%;
+	background: white;
+	display: block;
+	margin-left: -80%;
+	z-index: 2;
+	top: 0px;
+}
+
+/* menu 닫기 버튼 */
+
+#blog-nav > ul > li {
+	height: 50px;
+}
+
+#close {
+	background: url("../../images/close.png") no-repeat right center;
+	background-size: 50px 50px;
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-bottom: 20px;
+}
+
+/* blog 아이콘 메뉴 4개 img 태그로 이미지 삽입 했을 때*/
+
+#blog-icon-menu > div {
+	clear: both;
+	padding: 0px;
+}
+
+#blog-icon-menu > div > ul > li{
+	float: left;
+	padding-left: 5px;
+}
+
+#blog-icon-menu > div >  ul> li + li {
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li {
+	margin-top: 30px;
+}
+
+#blog-icon-menu > div > ul > li + li + li + li {
+	margin-top: 30px;
+}
+
+/* blog 이름 */
+
+#blog-nav-name {
+	clear: both;
+	padding-top: 30px;
+	padding-left: 30px;
+}
+
+#blog-nav-name > div > ul > li:first-child {
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/* blog 카테고리 */
+
+#blog-nav-category {
+	clear: both;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+/* blog 카테고리 대분류 */
+
+.nav-category-b {
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 20px;
+	font-weight: bold;
+	color:#000;
+	line-height: 40px;
+	display:block;
+	border-top: 1px solid #898989;
+	border-bottom: 1px solid #898989;
+	width: 250px;
+}
+
+/* blog 카테고리 소분류 */
+
+.nav-category-s > li > a{
+	font-family: 맑은고딕, 고딕, sans-serif; 
+	font-size: 16px;
+	color:#333333;
+	padding-left: 10px;
+	line-height: 35px;
+}

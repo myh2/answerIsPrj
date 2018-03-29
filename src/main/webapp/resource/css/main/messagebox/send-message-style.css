@@ -1,0 +1,159 @@
+@CHARSET "UTF-8";
+/*-------------- class style ---------------- */
+.hidden {
+	display: none;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+/*--------------main-menu--------------- */
+#main-menu {
+	border-bottom: lightgray 1px solid;
+	padding-bottom: 8px;
+}
+
+#main-menu ul {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 1em; 
+	text-align: center;
+
+}
+#main-menu>ul>li {
+	white-space: nowrap;;
+	display: flex;
+	justify-content: space-around;
+	border-left: 1px solid lightgray;
+	display: inline-block;
+	font-weight: bold;
+	padding-left: 7%;
+	padding-right: 7%;
+
+}
+#main-menu>ul>li a {
+	color: #444;
+}
+#main-menu>ul>li:first-child {
+	border: none;
+}
+
+.sendMessage span:last-child {
+	margin-bottom: 10px;
+}
+#buttons{
+	margin-top: 15px;
+	float: left;
+}
+/*--------------table--------------- */
+
+#tableDiv{
+	display: inline-block;
+	height: 420px;
+
+}
+.sendMessage table th {
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	border: 1px solid lightgray;
+	line-height: 20px;
+	vertical-align: middle;
+	white-space: nowrap;
+	background: lightgray;
+	
+}
+
+.sendMessage table td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	position:inherit;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px lightgray solid;
+	font-size: 13px;
+	color: #444;
+	line-height: 25px;
+}
+.th-id{
+	min-width:4em;
+	max-width:4.5em;
+}
+.th-content{ 
+	min-width:12.5em;
+	max-width:13.5em;
+
+}
+.th-date{
+	min-width:4.3em;
+	max-width:4.3em;
+}
+
+.id{
+	min-width:4em;
+	max-width:4.5em;
+}
+.id a{
+	font-size: 12px;
+}
+.content{ 
+	min-width:12.5em;
+	max-width:13.5em;
+
+}
+
+.date{
+	min-width:4.3em;
+	max-width:4.3em;
+}
+.date a {
+	font-size: 10px;
+}
+/*---------------------pager---------------------*/
+.main-content{
+	text-align: center;
+}
+#pager {
+	
+	margin-bottom: -10%;
+	display: inline-block;
+	line-height: 15px;
+	font-size: 13px;
+	font-family: sans-serif;
+	
+	
+}
+
+#pager>* {
+	float: left;
+}
+
+#pager li {
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	width: 15px;
+	height: 15px;
+}
+
+#pager li a {
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	width: 15px;
+	height: 15px;
+	text-decoration: none;
+	color: gray;
+}

@@ -1,0 +1,134 @@
+@CHARSET "UTF-8";
+/*-------------- class style ---------------- */
+.hidden {
+	display: none;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+	margin-top: 40px;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 23px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+
+/*-------------- my-info style---------------- */
+#my-info {
+	margin-top: 20px;
+}
+
+#my-info div {
+	margin-top: 8px;
+}
+
+#my-info p {
+	width: 150px;
+	line-height: 23px;
+	margin-left: 10px;
+	font-size: 14px;
+	color: #aaa;
+	display: inline-block;
+	border-radius: 3px;
+	font-size: 14px;
+}
+
+#my-info label {
+	margin-left: 15%;
+	margin-top: 3%;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 15px;
+}
+
+#my-info div input[type='text'] {
+	margin-left: 2%;
+	width: 40%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#my-info div input[type='file'] {
+	margin-left: 15%;
+	border-radius: 3px;
+}
+
+#my-info div input[type='button'] {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	width: 60px;
+	height: 25px;
+	background-color: #B4EEB4;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#my-info div input[type='button'],
+#my-info div input[type='submit'] {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	color: white;
+	width: 60px;
+	height: 25px;
+	background-color: #B5D234;
+	border: 1px solid #fff;
+	border-radius: 3px;
+}
+
+#my-info div select {
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#info {
+	margin-top: 20px;
+}
+
+#job-info label {
+	display: block;
+}
+
+#job-info ul {
+	margin-left: 15%;
+	display: inline-block;
+}
+
+#job-info ul li {
+	float: left;
+}
+
+#job-info select {
+	margin-left: 15%;
+	display: inline-block;
+}
+
+#job-info input[type='text'] {
+	margin-left: 0%;
+	width: 55% !important;
+}
+
+#job-info div:last-child div {
+	display: inline-block;	
+	margin-left: 15%; 
+	width: 100%;
+}
+
+#my-info #check-btn {
+	text-align: center;
+	margin-top: 5%;
+}
+
+#my-info #check-btn div {
+	diplay: inline-block;
+	text-align: center;
+}

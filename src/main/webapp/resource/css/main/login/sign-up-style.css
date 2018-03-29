@@ -1,0 +1,124 @@
+@CHARSET "UTF-8";
+
+/*-------------- class style ---------------- */
+
+.hidden {
+	display: none;
+}
+
+.verification-img {
+	display: inline-block;
+	position: absolute;
+	width: 30px;
+	vertical-align: middle;
+	right: 3%;
+}
+
+#main {
+	width: 340px;
+	margin: 0px auto;
+	margin-top: 10px;
+}
+
+#main h1 {
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #B5D234;
+	text-align: center;
+}
+
+/*-------------- sign-up style---------------- */
+#sign-up {
+	margin-top: 25px;
+}
+
+#sign-up label {
+	margin-left: 5%;
+	display: block;
+	font-family: "맑은 고딕", "고딕", sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#sign-up div input[type='text'] {
+	margin-left: 5%;
+	width: 60%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#sign-up div input[type="password"] {
+	margin-left: 5%;
+	width: 80%;
+	height: 20px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#sign-up div input[name='username'] {
+	width: 80%;
+}
+
+#sign-up div select {
+	width: 15%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#sign-up div select[name='user_birth_year'] {
+	margin-left: 5%;
+	width: 31%;
+	height: 25px;
+	text-indent: 5px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#sign-up div input[type='button'] {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	width: 60px;
+	height: 25px;
+	background-color: #B4EEB4;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+
+#sign-up fieldset > div {
+	margin-top: 15px;
+}
+
+#sign-up div:first-child {
+	margin-top: 0px;
+}
+
+#sign-up #sign-up-check {
+	margin-top: 25px;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+}
+
+#sign-up-check input {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	width: 60px;
+	height: 26px;
+}
+
+#sign-up-check input:first-child {
+	height: 25px;
+	margin-right: 10px;
+	background-color: #B4EEB4;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+}
+

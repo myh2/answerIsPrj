@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="net.answeris.web.dao.mybatis.AnswerDao">
+	
+	<select id="getList" resultType="net.answeris.web.model.Answer">
+		
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, AV.TITLE, AV.CONTENT, AV.Nickname, AV.HASHTAG, AV.REGDATE, AV."Select", AV.Hit, AV.BlogCode
+			FROM ANSWERVIEW AV
+
+			WHERE AV.Id = #{param2}
+		)C
+		WHERE CODE BETWEEN 1 AND 2
+		
+	</select>
+	
+	<select id="getNextList" resultType="net.answeris.web.model.Answer">
+		SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, AV.TITLE, AV.CONTENT, AV.Nickname, AV.HASHTAG, AV.REGDATE, AV."Select", AV.Hit, AV.BlogCode
+			FROM ANSWERVIEW AV
+
+			WHERE AV.Id = #{param2}
+		)C
+		WHERE CODE BETWEEN 1 + (2*#{param1}) AND 2 + (2*{param1})
+	</select>
+	
+	<select id="get" resultType="net.answeris.web.model.Answer">
+		SELECT * FROM ANSWERVIEW WHERE CODE = #{code}
+	</select>
+	
+	<select id="getPrevBlogCode" parameterType="java.lang.String" resultType="String">
+		SELECT BlogCode FROM ANSWERVIEW WHERE CODE=(SELECT MAX(CONVERT(numeric, Code)) FROM ANSWERVIEW WHERE CODE &lt; #{param1} AND ID = #{param2});
+	</select>
+	
+	<select id="getNextBlogCode" parameterType="java.lang.String" resultType="String">
+		SELECT BlogCode FROM ANSWERVIEW WHERE CODE=(SELECT MIN(CONVERT(numeric, Code)) FROM ANSWERVIEW WHERE CODE &gt; #{param1} AND ID = #{param2})
+	</select>
+	
+	<insert id="add" parameterType="net.answeris.web.model.Answer">   	 
+	
+	<selectKey order="BEFORE" resultType="String"  keyProperty="code">
+   		SELECT NVL(MAX(TO_NUMBER(CODE)),0)+1 CODE FROM ANSWER
+     </selectKey>
+    	 
+        INSERT INTO ANSWER(CODE, SELECT, PUBLICBLOGCODE, QUESTIONCODE) VALUES(#{code}, #{select}, #{publicBlogCode}, #{questionCode})
+
+    </insert>
+	
+	<update id="delete">
+				UPDATE BLOG SET MemberId='Admin' WHERE CODE=#{code}
+	</update>
+	
+	<select id="searchListTitle" parameterType="java.lang.String" resultType="net.answeris.web.model.Answer">
+			SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, AV.TITLE, AV.CONTENT, AV.Nickname, AV.HASHTAG, AV.REGDATE, AV."Select", AV.Hit, AV.BlogCode
+			FROM ANSWERVIEW AV
+
+			WHERE AV.Id = #{param2}
+		)C
+		WHERE Title LIKE '%${param1}%'
+	</select>
+	
+	<select id="searchListContent" parameterType="java.lang.String" resultType="net.answeris.web.model.Answer">
+			SELECT * FROM
+		(
+			SELECT ROW_NUMBER() OVER (ORDER BY REGDATE DESC) AS CODE, AV.TITLE, AV.CONTENT, AV.Nickname, AV.HASHTAG, AV.REGDATE, AV."Select", AV.Hit, AV.BlogCode
+			FROM ANSWERVIEW AV
+
+			WHERE AV.Id = #{param2}
+		)C
+		WHERE Content LIKE '%${param1}%'
+	</select>
+	
+	<select id="getId" parameterType="java.lang.String" resultType="String">
+		SELECT id FROM MEMBER
+		WHERE nickname = #{param1}
+	</select>
+	
+	<select id="getQnaCode" parameterType="java.lang.String" resultType="String">
+		SELECT code FROM AnswerView
+		WHERE BlogCode = #{param1}
+	</select>
+	
+	
+	
+	</mapper>

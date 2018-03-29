@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.MainSearchDao">
+   <select id="get" resultType="net.answeris.web.model.MainSearch" parameterType="String" > 
+      SELECT A.* FROM 
+      (
+      SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Blog.*  
+      FROM BLOG
+      WHERE TITLE LIKE '%${value}%'
+        AND CODE IN (SELECT BLOGCODE FROM PublicBlog
+            WHERE CODE NOT IN (SELECT PUBLICBLOGCODE FROM ANSWER)
+            AND BLOGCODE NOT IN (SELECT BLOGCODE FROM QUESTION) )
+      ) as A
+      WHERE Num BETWEEN 1 AND 5         
+   </select>
+   
+   <select id="getQnA" resultType="net.answeris.web.model.MainSearch" parameterType="String" > 
+      SELECT A.* FROM 
+      (
+      SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Blog.*  
+      FROM BLOG
+      WHERE TITLE LIKE '%${value}%'
+        AND CODE IN (SELECT BLOGCODE FROM PublicBlog
+            WHERE CODE IN (SELECT PUBLICBLOGCODE FROM ANSWER)
+            or BLOGCODE IN (SELECT BLOGCODE FROM QUESTION) )
+      ) as A
+      WHERE Num BETWEEN 1 AND 5   
+      <!-- 2+3*#{param1}; -->
+   </select>
+   
+    <select id="getQnANext" resultType="net.answeris.web.model.MainSearch" parameterType="String" > 
+      SELECT A.* FROM 
+      (
+      SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Blog.*  
+      FROM BLOG
+      WHERE TITLE LIKE '%${param1}%'
+        AND CODE IN (SELECT BLOGCODE FROM PublicBlog
+            WHERE CODE IN (SELECT PUBLICBLOGCODE FROM ANSWER)
+            or BLOGCODE IN (SELECT BLOGCODE FROM QUESTION) )
+      ) as A
+      WHERE Num BETWEEN 6 AND 6+3*#{param2}
+   </select> 
+   
+   <select id="getNext" resultType="net.answeris.web.model.MainSearch" parameterType="String" > 
+      SELECT A.* FROM 
+      (
+      SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Blog.*  
+      FROM BLOG
+      WHERE TITLE LIKE '%${param1}%'
+        AND CODE IN (SELECT BLOGCODE FROM PublicBlog
+            WHERE CODE NOT IN (SELECT PUBLICBLOGCODE FROM ANSWER)
+            or BLOGCODE NOT IN (SELECT BLOGCODE FROM QUESTION) )
+      ) as A
+      WHERE Num BETWEEN 6 AND 6+3*#{param2}
+   </select> 
+   
+</mapper>

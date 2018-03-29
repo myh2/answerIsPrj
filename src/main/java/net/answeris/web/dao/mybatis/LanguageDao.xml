@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.LanguageDao">
+	<select id='getList' resultType="net.answeris.web.model.Language">
+		select * from Language
+	</select>
+	<select id='get' resultType="net.answeris.web.model.Language">
+		select * from Language where Code=#{code}
+	</select>
+</mapper>

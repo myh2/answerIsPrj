@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.MainMyInfoDao">
+
+	<select id="getPhoto" resultType="String">
+		SELECT Photo
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getPassword" resultType="String">
+		SELECT Password
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getEmail" resultType="String">
+		SELECT Email
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getNickname" resultType="String">
+		SELECT Nickname
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getBirthday" resultType="String">
+		SELECT Birthday
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getExperience" resultType="int">
+		SELECT Experience
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getMyLanguage" resultType="String">
+		SELECT Language.Name
+     	FROM MemberLanguage
+     	JOIN Language
+     	ON (MemberLanguage.LanguageCode = Language.Code)
+     	WHERE MemberLanguage.MemberId = ${param1}
+	</select>
+	
+	<select id="getMyPlatform" resultType="String">
+	 	SELECT DISTINCT Platform.Name
+     	FROM MemberPlatform
+     	JOIN Platform
+     	ON (MemberPlatform.PlatformCode = Platform.Code)
+     	WHERE MemberPlatform.MemberId = ${param1}
+	</select>
+	
+	<select id="getMyJobClassMain" resultType="String">
+		SELECT Job.Name
+     	FROM MemberJob
+     	JOIN Job
+     	ON (MemberJob.JobCode = Job.Code)
+     	WHERE MemberJob.MemberId = ${param1}
+	</select>
+	
+	<select id="getMyJobClassSub" resultType="String">
+		SELECT JobDetail
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+
+	<select id="getMyBlog" resultType="String">
+		SELECT BlogName
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<select id="getMyNotification" resultType="String">
+		SELECT NotifySetting
+		FROM Member
+		WHERE Id = #{param1}
+	</select>
+	
+	<update id="update" parameterType="net.answeris.web.model.MainMyInfo" >
+		UPDATE Member
+		SET NickName = #{nickname},
+			JobDetail = #{myJobClassSub}
+		WHERE Id = #{id};
+		
+		UPDATE MemberLanguage
+		SET LanguageCode = #{myLanguage}
+		WHERE MemberId = #{id};
+		
+		UPDATE MemberPlatform
+		SET PlatformCode = #{myPlatform}
+		WHERE MemberId = #{id};
+		
+		UPDATE MemberJob
+		SET JobCode = #{myJobClassMain}
+		WHERE MemberId = #{id};
+	</update>
+	
+</mapper>

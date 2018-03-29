@@ -1,0 +1,515 @@
+@CHARSET "UTF-8";
+
+a {text-decoration: none; font-family: "맑은 고딕", "고딕", Sans-serif}
+
+.header-hidden {display: none;}
+
+#header {
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+#header-menu-btn{
+	float: left;
+	background: url("../../images/main/btn-header-menu.png") no-repeat center;
+	background-size: 30p 30px;
+	height: 100%;
+	width: 50px;
+}
+
+#header-search-btn{
+	float: right;
+	background: url("../../images/main/search-icon.png") no-repeat center;
+	background-size: 25px 25px;
+	height: 100%;
+	width: 40px;
+}
+#header-top-search{
+	display: none;
+	width: 60%;
+	background: white;
+	float: right;
+	height: 40px;
+	margin-top: 5px;
+	margin-right: 10px;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px; 
+}
+@media screen and (min-width: 600px){
+	#header-search-btn{
+		display: none;
+	}
+	#header-top-search{
+		display: inline-block;
+	}
+}
+#header-logo{
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 5px;	
+}
+#header-logo > a{
+	float: left;
+	background: url("../../images/main/header-logo-ara.png") no-repeat center;
+	background-size: 100px 25px;
+    height: 40px;
+	width: 110px;
+}
+
+#header-join{
+	display: inline-block;
+	float: right;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+#searchform {
+	display: inline-block;
+	width:250px;
+}
+@media screen and (min-width: 360px){
+	#searchform{
+	width: 70%;
+	}
+}
+@media screen and ( min-width: 1024px){
+	#searchform{
+	width: 720px;
+	}
+}
+#searchform > div:first-child {
+	display: inline-block;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #aaa; 
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px; 
+}
+#search-sort-btn{
+	float:left;
+	width: 50px;
+	height:inherit;
+	background: url("../../images/main/sort-icon-before.png") no-repeat center;
+	background-color: white;
+	background-size: 30px 30px;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#search-sort-btn + div{
+	float:left;
+	width: calc(100% - 50px);
+	height: 100%;
+}
+#search-input {
+	float:left;
+	text-indent: 15px; 
+	width: 99%;
+	height: 37px; 
+	font-size: 16px; 
+	border: none;
+	outline-style: none;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/*  -------------------------------------------- header-top-search---------------------------------------------- */
+#header-top-searchform{
+	display: inline-block;
+	width:100%;
+	height:100%;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#header-top-searchform > div:first-child{
+	width:100%;
+	height:100%;
+}
+#header-top-search-sort-btn{
+	float:left;
+	width: 50px;
+	height:inherit;
+	background: url("../../images/main/sort-icon-before.png") no-repeat center;
+	background-color: white;
+	background-size: 30px 30px;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#header-top-search-sort-btn + div{
+	float:left;
+	width: calc(100% - 50px);
+	height:100%;
+}
+#header-top-search-sort-btn + div > fieldset{
+	height:100%;
+}
+#header-top-search-search-input{
+	float:left;
+	text-indent: 15px; 
+	width: 99%;
+	height: 37px; 
+	font-size: 16px; 
+	border: none;
+	outline-style: none;
+	-webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#header-top-search-sort{
+	width: 100%;
+	height: auto;
+	display: none;
+}
+#header-top-search-sort > div:first-child{
+	height: 10px;
+	width: 100%;
+	margin-left: 20px;
+	background: url("../../images/main/sort-triangle.png") no-repeat;
+	background-size: 10px 10px;
+}
+#header-top-search-sort > div:first-child + div{
+	background:white;
+	display: inline-block;
+	-webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+}
+
+#header-top-search-sort-language,
+#header-top-search-sort-platform{
+	display: inline-block;
+	padding: 5px;
+	width: 100%;'
+}
+#header-top-search-sort-language > p,
+#header-top-search-sort-platform > p{
+	text-align: left;
+	text-indent: 10px;
+}
+#header-top-search-sort ul{
+	margin-top: 10px
+}
+#header-top-search-sort li{
+	float: left;
+}
+#header-top-search-sort-language li input:first-child{
+	font-size: 15px;
+	font-weight: bold;
+	color: #0000ff;
+	outline-style: none;
+	background: white;
+	margin: 5px;
+	-webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   border: 3px solid #00ffff;
+   transition: all linear 0.2s;
+}
+#header-top-search-sort-platform li input:first-child{
+	font-size: 15px;
+	font-weight: bold;
+	color: #cc00ff;
+	outline-style: none;
+	background: white;
+	margin: 5px;
+	-webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   border: 3px solid #cc99ff;
+   transition: all linear 0.2s;
+}
+#header-top-search-sort li input:last-child{
+	display:none;
+}
+/* -----   메뉴 인 CSS   ------------------------------------------------------- */
+#header-menu{
+	 z-index: 100;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+	
+}
+#header-menu > div:first-child{
+	width: 250px;
+	height: auto;
+	display: inline-block;
+	background-color: rgba(238,238,238, 0.9);
+	text-indent: 0px;
+}
+#header-menu-side{
+	float:left;
+	width:10px;
+	height: 100%;
+}
+#header-menu-header{
+	width: 100%;
+	height: 49px;
+	background: #eee; 
+	border-bottom: 1px solid  #aaa ;
+}
+#header-menu-in-btn{
+	float: left;
+	background: url("../../images/main/btn-header-menu.png") no-repeat center;
+	background-size: 30p 30px;
+	height: 100%;
+	width: 50px;
+}
+
+#header-menu-in-logo{
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 5px;
+}
+#header-menu-in-logo >  a{
+	float: left;
+	background: url("../../images/main/header-logo-ara.png") no-repeat center;
+	background-size: 100px 25px;
+    height: 40px;
+	width: 110px;
+}
+#header-menu-list > ul > li{
+	border-bottom: 1px solid #aaa;
+	height : auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+#header-menu-list > ul > li > a{
+	line-height: 200%;
+	text-decoration:none;
+	color: #999;
+	font-size: 30px;
+	font-weight: bold;
+	font-style: normal;
+}
+#header-menu-myinfo{
+	width: 100%;
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+#header-menu-myinfo > div{
+	width: 100%;	
+	display: inline-block;
+}
+#header-menu-myinfo > div:fitst-child > div{
+	height: 150px;
+}
+#header-menu-mypic{
+	width: 60%;
+	height: 150px;
+	float: left;
+}
+#header-menu-mypic > img{
+	width: clac(100%-10px);
+	height: 100%;
+	margin-right: 10px;
+	background:#aaa;
+}
+#header-menu-mypic + div{
+	width:40%;
+	height: 150px;
+	float:left;
+}
+#header-menu-mypic + div > div{
+	line-height:normal;
+	height: 20%;
+}
+#header-menu-message{
+}
+#header-menu-message > a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+#header-menu-message input{
+	float: left;
+	width:30px;
+	height:30px;
+	background: url("../../images/main/paper.png") no-repeat left;
+	background-size:  30px 30px;
+	border:none;
+	text-indent: -100px;
+}
+#header-menu-message > a > div{
+	text-align: right;
+	width: calc(100% - 30px);
+	height: 100%;
+	float: right;
+	background:url("../../images/main/new-icon.png") no-repeat left;
+	background-size: 30px 20px;
+	line-height: 200%;
+	color: #999;
+	font-size: 18px;
+	font-weight: bold;
+	font-style: normal;
+}
+#header-menu-user,
+#header-menu-user-nick{
+	height: 100%;
+	color: #999;
+	font-size: 20px;
+	font-weight: bold;
+	font-style: normal;
+	line-height: 40px;
+}
+#header-menu-level > div:first-child {
+	float: left;
+	width: 50%;
+	height: 100%;
+	background:url("../../images/main/grade-1.png") no-repeat left;
+	background-size: 70% 70%;
+	text-indent: -100px;
+	overflow: hidden;
+}
+#header-menu-level > div:last-child {
+	float: right;
+	width: 50%;
+	height: 100%;
+	line-height: 250%;
+	color: #999;
+	font-size: 15px;
+	font-weight: bold;
+	font-style: normal;
+	}
+#header-menu-myinfo-go{
+	margin-top: 10px;
+	height: 30px;
+}
+#header-menu-myinfo-go a{
+	line-height: 30px;
+	font-size: 25px;
+	font-weight: bold;
+	font-style: normal;
+	color: #999;
+}
+
+/*  -------------------------------------------- header-search ---------------------------------------------- */
+#header-search-form {
+	 z-index: 100;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color:  rgba(136,136,136, 0.5);
+	display: none;
+}
+
+#header-search-form > form > div{
+	margin: 10px;
+}
+#header-search-form > form > div > div:first-child{
+	height:40px;
+	width: calc(100% - 20px;);
+}
+
+#header-search-sort-btn{
+	float:left;
+	width: 50px;
+	height:inherit;
+	background: url("../../images/main/sort-icon-before.png") no-repeat center;
+	background-size: 30px 30px;
+	background-color: white;
+}
+#header-search-sort-btn  + div{
+	float:left;
+	width: calc(100% - 90px);
+	height:inherit;
+	background: white;
+}
+#header-search-input{
+	width: 100%;
+	height:30px;
+	margin-top: 4px;
+	text-indent: 10px;	
+	line-height: 30px;
+	font-size: 15px;
+	border: none;
+	outline-style: none;
+}
+#header-search-submit{
+	display: none;
+}
+#header-search-back-btn{
+	float:left;
+	width: 40px;
+	height:inherit;
+	background: url("../../images/main/exit-icon.png") no-repeat center;
+	background-size: 30px 30px;
+	background-color: white;
+}
+
+/*  -------------------------------------------- header-search-sort ---------------------------------------------- */
+
+#header-sort{
+	width: 100%;
+	height: auto;
+	display: none;
+}
+#header-sort > div:first-child{
+	height: 10px;
+	width: 100%;
+	margin-left: 20px;
+	background: url("../../images/main/sort-triangle.png") no-repeat;
+	background-size: 10px 10px;
+}
+#header-sort > div:first-child + div{
+	background:white;
+	display: inline-block;
+	-webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+}
+
+#header-sort-language,
+#header-sort-platform{
+	display: inline-block;
+	padding: 5px;
+	width: 100%;'
+}
+#header-sort ul{
+	margin-top: 10px
+}
+#header-sort li{
+	float: left;
+}
+#header-sort-language li input:first-child{
+	font-size: 15px;
+	font-weight: bold;
+	color: #0000ff;
+	outline-style: none;
+	background: white;
+	margin: 5px;
+	-webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   border: 3px solid #00ffff;
+   transition: all linear 0.2s;
+}
+#header-sort-platform li input:first-child{
+	font-size: 15px;
+	font-weight: bold;
+	color: #cc00ff;
+	outline-style: none;
+	background: white;
+	margin: 5px;
+	-webkit-border-radius: 30px;
+   -moz-border-radius: 30px;
+   border-radius: 30px;
+   border: 3px solid #cc99ff;
+   transition: all linear 0.2s;
+}
+#header-sort li input:last-child{
+	display:none;
+}

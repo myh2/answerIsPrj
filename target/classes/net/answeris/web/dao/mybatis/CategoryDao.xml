@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.CategoryDao">
+	<select id="get" resultType="net.answeris.web.model.Category">
+		select * from Category where Code=#{code}		 		
+	</select>
+	
+	<select id='getList' resultType="net.answeris.web.model.Category">
+		select * from Category where MemberId=#{memberId}
+	</select>
+	<insert id='add' parameterType="net.answeris.web.dao.mybatis.CategoryDao">
+		<selectKey order="BEFORE" resultType="String" keyProperty="code">
+			SELECT ISNULL(MAX(CONVERT(INT, Code)), 0)+1 Code FROM Category;
+		</selectKey>
+		insert into Category (Code, Name, MemberId) VALUES(#{code}, #{name}, #{memberId})
+	</insert>
+</mapper>

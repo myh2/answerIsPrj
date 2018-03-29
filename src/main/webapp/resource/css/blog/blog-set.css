@@ -1,0 +1,127 @@
+@CHARSET "UTF-8";
+
+.hidden {
+	display: none;
+}
+
+/* ----------------- 전체 container css ----------------- */
+
+#blog-set-container {
+	margin: 0 auto;
+	width: 300px;
+}
+
+/* ----------------- 카테고리명, 공개설정, 주제 분류 글꼴 ----------------- */
+
+.blog-set-category-title {
+	font-family: 맑은 고딕;
+	color: black;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* ----------------- 카테고리 추가, 삭제 ----------------- */
+
+#blog-set-category-nav{
+	margin-top: 30px;
+}
+
+#blog-set-category-nav>div a {
+	text-decoration: none;
+	font-family: 맑은고딕;
+	color: #000;
+	font-size: 15px;
+	font-weight: bold;
+	margin-right: 25px;
+}
+
+#blog-set-category-nav>div>a:hover {
+	color: #ff3d29
+}
+
+
+/* ----------------- 삭제, 저장 버튼 ----------------- */
+
+#blog-set-category-del {
+	margin-left:30px;
+	display: inline-block;
+	border: none;
+	color: white;
+	overflow: hidden;
+	vertical-align: middle;
+	background: url("../../images/btn-blog-set-del.png") no-repeat center;
+	background-size: 30px 30px;
+	height: 30px;
+	width: 30px;
+}
+
+#blog-set-category-save {
+	display: inline-block;
+	border: none;
+	color: white;
+	overflow: hidden;
+	vertical-align: middle;
+	background: url("../../images/btn-blog-set-del.png") no-repeat center;
+	background-size: 30px 30px;
+	height: 30px;
+	width: 30px;
+}
+
+#blog-set-category {
+	width:300px;
+	border: 1px dashed #898989;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+/* ----------------- ul style (주제 목록) ----------------- */
+
+#blog-set-container ul {
+	list-style: none;
+	padding: 0;
+	margin-left: 0;
+}
+
+#blog-set-container ul>li {
+	list-style: none;
+	margin: 5px;
+}
+
+/* ----------------- ul style (주제 목록) ----------------- */
+
+#blog-set-category>h1 {
+	font-family: 맑은 고딕;
+	color: #000;
+	font-size: 15px;
+}
+
+#blog-set-category>ul>li {
+	margin-bottom: 5px;
+}
+
+#blog-set-category>ul>li>a {
+	text-decoration: none;
+	font-family: 맑은 고딕;
+	color: #898989;
+	font-size: 15px;
+}
+
+#blog-set-category>ul>li>a:hover {
+	color: white;
+	background-color: #ff3d29;
+}
+
+#blog-set-category-set>fieldset {
+	border: none;
+	font-family: 맑은 고딕;
+	color: 000;
+	font-size: 15px;
+}
+
+/* ----------------- 공개, 비공개 마진 ----------------- */
+
+.blog-set-category-margin {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.answeris.web.dao.mybatis.CodeletDao">
+	   <select id="getList" resultType="net.answeris.web.model.Codelet">
+          SELECT * FROM
+      (
+         SELECT ROW_NUMBER() OVER 
+<if test='sortFlag == ""'>
+         (ORDER BY RegDate DESC) Num, 
+</if>               
+<if test='sortFlag == "R"'>
+         (ORDER BY RECENT DESC) Num, 
+</if>         
+<if test='sortFlag == "F"'>
+         (ORDER BY RegDate DESC) Num, 
+</if>         
+          Codelet.*  
+         FROM Codelet
+         WHERE RegmemberId=#{regMemberId}
+
+<if test='select == "hashtag"'>
+		  AND HashTag like '%${query}%'
+</if>
+<if test='select == "title"'>       
+          AND Title like '%${query}%'
+</if>
+
+<if test='sortFlag == "F"'>
+         AND FAVORITE='Y' 
+</if>   
+<if test='sortSelec != ""'>
+          AND LanguageCode=#{sortSelec}
+</if>   
+      ) C
+      WHERE Num BETWEEN 1 AND 10;            
+                   
+   </select>
+
+	
+	<select id="get" resultType="net.answeris.web.model.Codelet">
+		SELECT * FROM CODELET WHERE CODE = #{code}
+	</select>
+	
+	<select id="getNext" resultType="net.answeris.web.model.Codelet">
+		SELECT * FROM NOTICE_VIEW WHERE CODE=(SELECT MIN(TO_NUMBER(CODE)) FROM NOTICE_VIEW WHERE CODE &gt; #{param1})
+	</select>
+	
+	<select id="getPrev" resultType="net.answeris.web.model.Codelet">
+		SELECT * FROM NOTICE_VIEW WHERE CODE=(SELECT MAX(TO_NUMBER(CODE)) FROM NOTICE_VIEW WHERE CODE &lt; #{param1})
+	</select>
+	
+	   <!--  이거 add 글쓰는거임 -나정- -->
+   	<insert id="add" parameterType="net.answeris.web.model.Codelet">
+	    <selectKey order="BEFORE" resultType="String" keyProperty="code">
+	      <!-- SELECT NVL(MAX(TO_NUMBER(CODE)), 0)+1 CODE FROM CODELET -->
+	      SELECT ISNULL(MAX(CONVERT(INT, CODE)), 0)+1 CODE FROM CODELET
+	    </selectKey>
+	    <!-- 
+	      INSERT INTO CODELET(CODE, TITLE, CODESRC, FAVORITE, LANGCODE,HASHTAG,PLATFORMCODE, REGMEMBERID,REGDATE) 
+	      VALUES(#{code}, #{title}, #{codeSrc},#{favorite}, #{langCode},#{hashTag}, #{platformCode}, #{regMemberId},GETDATE())
+	      -->
+			INSERT INTO CODELET
+			(
+			CODE,
+			TITLE,
+			CODESRC,
+			LanguageCode,
+			HASHTAG,
+			REGMEMBERID,
+			REGDATE
+			)
+			VALUES
+			(		
+			#{code},
+			#{title},
+			#{codeSrc},
+			#{languageCode},
+			#{hashTag},
+			#{regMemberId},
+			 GETDATE()
+			)      
+   </insert>
+			
+	
+	<update id="update" parameterType="net.answeris.web.model.Codelet">
+		UPDATE CODELET SET TITLE=#{title}, CODESRC=#{codeSrc}, LanguageCode=#{languageCode}, HASHTAG=#{hashTag}  WHERE CODE=#{code}
+	</update>
+	
+	<update id="addFav" parameterType="net.answeris.web.model.Codelet">
+		UPDATE CODELET SET FAVORITE='Y' WHERE CODE=#{code}
+	</update>
+	
+	<update id="delFav" parameterType="net.answeris.web.model.Codelet">
+		UPDATE CODELET SET FAVORITE='N' WHERE CODE=#{code}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM CODELET WHERE CODE = #{param1}
+	</delete>
+	
+	<select id="getLangList" resultType="net.answeris.web.model.Codelet">
+		SELECT DISTINCT LANGUAGECODE FROM CODELET WHERE RegmemberId=#{param1} 
+	</select>
+	
+	<update id="updateRec" parameterType="net.answeris.web.model.Codelet">
+		UPDATE CODELET SET Recent=GETDATE() WHERE CODE=#{code}
+	</update>
+	
+	<select id="getFavList" resultType="net.answeris.web.model.Codelet">
+      <!-- SELECT * FROM
+      (SELECT ROWNUM NUM, NOTICE_VIEW.* FROM NOTICE_VIEW WHERE ${param1} LIKE '%${param2}%')
+      WHERE NUM BETWEEN 1+(#{param3} - 1)*10 AND #{param3}*10 -->
+      
+      SELECT * FROM
+      (
+         SELECT ROW_NUMBER() OVER (ORDER BY RegDate DESC) Num, Codelet.* 
+         FROM (SELECT *FROM CODELET WHERE FAVORITE='Y') 
+         Codelet WHERE Title like '%%' AND RegmemberId=#{param1}
+      ) C   
+      WHERE Num BETWEEN 1 AND 10;
+   </select>
+   
+   
+   
+    <select id="getRecList" resultType="net.answeris.web.model.Codelet">
+      <!-- SELECT * FROM
+      (SELECT ROWNUM NUM, NOTICE_VIEW.* FROM NOTICE_VIEW WHERE ${param1} LIKE '%${param2}%')
+      WHERE NUM BETWEEN 1+(#{param3} - 1)*10 AND #{param3}*10 -->
+      
+      SELECT * FROM
+      (
+         SELECT ROW_NUMBER() OVER (ORDER BY RECENT DESC) Num, Codelet.*  
+         FROM Codelet
+         WHERE Title like '%%' AND RegmemberId=#{param1}
+      ) C
+      WHERE Num BETWEEN 1 AND 10;      
+                   
+   </select>
+   
+   	<select id="getHashTags"  resultType="net.answeris.web.model.Codelet">
+	SELECT item as hashTag, count(*) hit
+	FROM fnSplitToRows((SELECT replace(HashTag,'#','') + ',' AS 'data()'
+						FROM CODELET 
+						WHERE ( 'U' = #{userFlag} and RegmemberId = #{regMemberId}) OR ('A' = #{userFlag} and RegmemberId like '%%')
+						FOR XML PATH('')),',')
+	where item like '%'+#{ht}+'%'
+	group by item
+	order by hit desc
+	</select>
+   
+   <!-- <select id="getSearch" resultType="net.answeris.web.model.Codelet" parameterType="String" > 
+		SELECT * FROM CODELET
+		WHERE TITLE LIKE '%${value}%'
+  		AND CODE IN (SELECT BLOGCODE FROM PublicBlog
+				WHERE CODE NOT IN (SELECT PUBLICBLOGCODE FROM ANSWER)
+				AND BLOGCODE NOT IN (SELECT BLOGCODE FROM QUESTION) )
+		order by hit desc
+			
+	</select> -->
+   
+</mapper>
